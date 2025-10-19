@@ -1,32 +1,61 @@
-# 🐼 sql-chipi-case# 🐼 sql-chipi-case# 🐼 sql-chipi-case
+# 🐼 sql-chipi-case# 🐼 sql-chipi-case# 🐼 sql-chipi-case# 🐼 sql-chipi-case
 
 
 
-> **Un proyecto educativo para enseñar SQL resolviendo un misterio.**
+Un proyecto educativo para enseñar SQL resolviendo un misterio.
 
 
 
-Chipi, la mascota de **SuperKode**, ha sido secuestrada el 19 de octubre a las **02:13**. Los alumnos del bootcamp deben usar **SQL** para resolver pistas y descubrir quién fue.> **Un proyecto educativo para enseñar SQL resolviendo un misterio.**> **Un proyecto educativo para enseñar SQL resolviendo un misterio.**
+Chipi desapareció. Investigar con SQL.> **Un proyecto educativo para enseñar SQL resolviendo un misterio.**
 
 
 
----
+## Retos
 
 
 
-## 📖 ContextoChipi, la mascota de **SuperKode**, ha sido secuestrada el 19 de octubre a las **02:13**. Los alumnos del bootcamp deben usar **SQL** para resolver pistas y descubrir quién fue.Chipi, la mascota de **SuperKode**, ha sido secuestrada. Los alumnos del bootcamp deben usar **SQL** para resolver pistas y descubrir quién fue.
+- **Día 1:** challenges/day1_select_basics.mdChipi, la mascota de **SuperKode**, ha sido secuestrada el 19 de octubre a las **02:13**. Los alumnos del bootcamp deben usar **SQL** para resolver pistas y descubrir quién fue.> **Un proyecto educativo para enseñar SQL resolviendo un misterio.**> **Un proyecto educativo para enseñar SQL resolviendo un misterio.**
+
+- **Día 2:** challenges/day2_joins_analysis.md
+
+- **Día 3:** challenges/day3_window_functions.md (opcional)
 
 
+
+## Setup---
+
+
+
+```
+
+$env:PGPASSWORD="postgres"
+
+make setup## 📖 ContextoChipi, la mascota de **SuperKode**, ha sido secuestrada el 19 de octubre a las **02:13**. Los alumnos del bootcamp deben usar **SQL** para resolver pistas y descubrir quién fue.Chipi, la mascota de **SuperKode**, ha sido secuestrada. Los alumnos del bootcamp deben usar **SQL** para resolver pistas y descubrir quién fue.
+
+```
+
+
+
+## Validar
 
 El 19 de octubre de 2025, a las **02:13**, Chipi desapareció de la oficina de SuperKode.
 
+```
+
+make check-day1
+
+make check-day2
+
+make check-day3**Los sospechosos:**------
+
+make check-all
+
+```- 🛠️ **Cris** (formadora): "Fue el router. Siempre es el router."
 
 
-**Los sospechosos:**------
 
-- 🛠️ **Cris** (formadora): "Fue el router. Siempre es el router."
+*¡Investiga! 🕵️*- 🔧 **Andrea** (formadora): "El pipeline está roto."
 
-- 🔧 **Andrea** (formadora): "El pipeline está roto."
 
 - 📊 **Yeraldín** (formadora): "Revisar los commits."
 
