@@ -1,4 +1,4 @@
-# 🐼 sql-chipi-case: Retos del Día 1 - SELECT Basics# 🐼 sql-chipi-case: Retos del Día 1 - SELECT Basics# 🐼 sql-chipi-case: Retos del Día 1 - SELECT Basics
+# 🐼 sql-chipi-case: Retos del Día 1 - SELECT Basics# 🐼 sql-chipi-case: Retos del Día 1 - SELECT Basics
 
 
 
@@ -6,39 +6,47 @@
 
 
 
-**Chipi desapareció a las 02:13 del 19 de octubre.** Los formadores sospechan. Tú debes investigar con **SQL**.## 📖 Contexto## 📖 Contexto
+**Chipi desapareció a las 02:13 del 19 de octubre.** Los formadores (Cris, Andrea, Yeraldín y Mamá Pato 🦆) sospechan. Tú debes investigar con **SQL**.## 📖 Contexto
 
 
 
-Los alumnos del bootcamp SuperKode tienen datos, pero necesitas preguntar a la base de datos para descubrir pistas.Chipi desapareció a las **02:13** del 19 de octubre. Los formadores (Cris, Andrea, Yeraldín y Mamá Pato 🦆) señalan al router, al pipeline, al CI... pero alguien miente.
+Los alumnos del bootcamp SuperKode tienen datos, pero necesitas preguntar a la base de datos para descubrir pistas.
 
 
 
----**Chipi desapareció a las 02:13 del 19 de octubre.** Los formadores sospechan. Tú debes investigar con **SQL**.
+**Tu misión: usa SQL para descubrir quién secuestró a Chipi.****Chipi desapareció a las 02:13 del 19 de octubre.** Los formadores sospechan. Tú debes investigar con **SQL**.## 📖 Contexto## 📖 Contexto
 
 
 
-## 🎯 Reto 1: Conoce al equipoTu misión: **usa SQL para descubrir quién secuestró a Chipi.**
+---
 
 
 
-**¿Quién es quién en SuperKode?**Los alumnos del bootcamp SuperKode tienen datos, pero necesitas preguntar a la base de datos para descubrir pistas.
+## 🎯 Reto 1: Conoce al equipoLos alumnos del bootcamp SuperKode tienen datos, pero necesitas preguntar a la base de datos para descubrir pistas.Chipi desapareció a las **02:13** del 19 de octubre. Los formadores (Cris, Andrea, Yeraldín y Mamá Pato 🦆) señalan al router, al pipeline, al CI... pero alguien miente.
 
 
 
-Necesitamos listar a **todos los alumnos** con su nombre, su equipo y su turno.---
+**¿Quién es quién en SuperKode?**
 
 
 
-**Columnas esperadas:**---
+Necesitamos listar a **todos los alumnos** con su nombre, su equipo y su turno.---**Chipi desapareció a las 02:13 del 19 de octubre.** Los formadores sospechan. Tú debes investigar con **SQL**.
+
+
+
+**Dificultad:** ⭐ Básico (SELECT + JOIN)
+
+
+
+**Columnas esperadas:**## 🎯 Reto 1: Conoce al equipoTu misión: **usa SQL para descubrir quién secuestró a Chipi.**
 
 - `nombre` (del alumno)
 
-- `equipo` (nombre del equipo)## 🎯 Reto 1: Lista todos los alumnos con su equipo y turno
+- `equipo` (nombre del equipo)
 
 - `turno` (mañana, tarde, noche)
 
-## 🎯 Reto 1: Conoce al equipo**Dificultad:** ⭐ Básico (SELECT + JOIN)
+**¿Quién es quién en SuperKode?**Los alumnos del bootcamp SuperKode tienen datos, pero necesitas preguntar a la base de datos para descubrir pistas.
 
 **Orden:** Primero por equipo (A→Z), luego por nombre (A→Z)
 
@@ -46,173 +54,380 @@ Necesitamos listar a **todos los alumnos** con su nombre, su equipo y su turno.-
 
 **Nombre de la vista:** `solve_d1_r1`
 
-**¿Quién es quién en SuperKode?**Muestra el nombre, equipo y turno de todos los alumnos del bootcamp SuperKode.
+Necesitamos listar a **todos los alumnos** con su nombre, su equipo y su turno.---
 
 **Pista:** Necesitas datos de dos tablas: `alumnos` y `equipos`. Usa `JOIN` para conectarlas.
 
 
 
----
+**Ejemplo de resultado:**
 
-Necesitamos listar a **todos los alumnos** con su nombre, su equipo y su turno.```sql
+```**Columnas esperadas:**---
 
-## 🎯 Reto 2: ¿Quién mencionó a Chipi?
+     nombre      |    equipo     | turno
 
--- Escribe tu solución aquí
+-----------------+---------------+-------- `nombre` (del alumno)
 
-**Pista crítica: Alguien en los commits ha hablado de Chipi.**
+ Miguel          | SuperKode A   | mañana
 
-**Columnas esperadas:**SELECT 
+ Marcus          | SuperKode A   | mañana- `equipo` (nombre del equipo)## 🎯 Reto 1: Lista todos los alumnos con su equipo y turno
 
-Necesitamos encontrar todos los **commits que contengan la palabra "chipi"** (no importa mayúsculas).
+ SalchiPresi     | SuperKode A   | tarde
 
-- `nombre` (del alumno)  a.nombre, 
-
-**Columnas esperadas:**
-
-- `nombre` (del alumno que hizo el commit)- `equipo` (nombre del equipo)  e.nombre as equipo, 
-
-- `rama` (nombre de la rama)
-
-- `mensaje` (el mensaje del commit)- `turno` (mañana, tarde, noche)  a.turno 
-
-- `estado_ci` (success, failed, pending)
-
-- `fecha` (cuándo fue el commit)FROM alumnos a 
-
-
-
-**Orden:** Más recientes primero**Orden:** Primero por equipo (A→Z), luego por nombre (A→Z)JOIN equipos e ON a.equipo_id = e.id 
-
-
-
-**Nombre de la vista:** `solve_d1_r2`ORDER BY e.nombre, a.nombre;
-
-
-
-**Pista:** **Nombre de la vista:** `solve_d1_r1````
-
-- Tabla `commits` contiene los commits
-
-- Tabla `alumnos` contiene quién los hizo
-
-- Usa `WHERE` con `ILIKE` para búsqueda flexible (sin importar mayúsculas)
-
-**Pista:** Necesitas datos de dos tablas: `alumnos` y `equipos`. Usa `JOIN` para conectarlas.**Expected output:**
-
----
+ ...- `turno` (mañana, tarde, noche)
 
 ```
 
+## 🎯 Reto 1: Conoce al equipo**Dificultad:** ⭐ Básico (SELECT + JOIN)
+
+---
+
+**Orden:** Primero por equipo (A→Z), luego por nombre (A→Z)
+
+## 🎯 Reto 2: ¿Quién mencionó a Chipi?
+
+
+
+**Pista crítica: Alguien en los commits ha hablado de Chipi.**
+
+**Nombre de la vista:** `solve_d1_r1`
+
+Necesitamos encontrar todos los **commits que contengan la palabra "chipi"** (no importa mayúsculas).
+
+**¿Quién es quién en SuperKode?**Muestra el nombre, equipo y turno de todos los alumnos del bootcamp SuperKode.
+
+**Dificultad:** ⭐⭐ Intermedio (WHERE + ILIKE + JOIN)
+
+**Pista:** Necesitas datos de dos tablas: `alumnos` y `equipos`. Usa `JOIN` para conectarlas.
+
+**Columnas esperadas:**
+
+- `nombre` (del alumno que hizo el commit)
+
+- `rama` (nombre de la rama)
+
+- `mensaje` (el mensaje del commit)---
+
+- `estado_ci` (success, failed, pending)
+
+- `fecha` (cuándo fue el commit)Necesitamos listar a **todos los alumnos** con su nombre, su equipo y su turno.```sql
+
+
+
+**Orden:** Más recientes primero## 🎯 Reto 2: ¿Quién mencionó a Chipi?
+
+
+
+**Nombre de la vista:** `solve_d1_r2`-- Escribe tu solución aquí
+
+
+
+**Pista:****Pista crítica: Alguien en los commits ha hablado de Chipi.**
+
+- Tabla `commits` contiene los commits
+
+- Tabla `alumnos` contiene quién los hizo**Columnas esperadas:**SELECT 
+
+- Usa `WHERE` con `ILIKE` para búsqueda flexible (sin importar mayúsculas)
+
+Necesitamos encontrar todos los **commits que contengan la palabra "chipi"** (no importa mayúsculas).
+
+**Ejemplo de resultado:**
+
+```- `nombre` (del alumno)  a.nombre, 
+
+ nombre |           rama           |                    mensaje                     | estado_ci |           fecha
+
+--------+--------------------------+------------------------------------------------+-----------+---------------------------**Columnas esperadas:**
+
+ Miguel | feature/auth             | Implementar JWT con chipi_secret               | success   | 2025-10-19 10:30:00
+
+ David  | hotfix/chipi-emergency   | EMERGENCIA: Chipi desaparecido!                | pending   | 2025-10-19 02:15:00- `nombre` (del alumno que hizo el commit)- `equipo` (nombre del equipo)  e.nombre as equipo, 
+
+```
+
+- `rama` (nombre de la rama)
+
+---
+
+- `mensaje` (el mensaje del commit)- `turno` (mañana, tarde, noche)  a.turno 
+
 ## 🎯 Reto 3: Cafetera a las 02:13 🚨
 
----      nombre      |    equipo     | turno
+- `estado_ci` (success, failed, pending)
 
 **Alerta: Chipi desapareció a las 02:13. ¿Quién estaba en la cafetera en ese momento?**
 
------------------+---------------+-------
+- `fecha` (cuándo fue el commit)FROM alumnos a 
 
 Necesitamos saber **quién tomó café exactamente a las 02:13**.
+
+
+
+**Dificultad:** ⭐⭐ Intermedio (WHERE + TIME + JOIN)
+
+**Orden:** Más recientes primero**Orden:** Primero por equipo (A→Z), luego por nombre (A→Z)JOIN equipos e ON a.equipo_id = e.id 
+
+**Columnas esperadas:**
+
+- `nombre` (del alumno)
+
+- `bebida` (qué tomó)
+
+- `leche` (sí o no)**Nombre de la vista:** `solve_d1_r2`ORDER BY e.nombre, a.nombre;
+
+- `hora` (la hora exacta)
+
+
+
+**Nombre de la vista:** `solve_d1_r3`
+
+**Pista:** **Nombre de la vista:** `solve_d1_r1````
+
+**Pista:**
+
+- Tabla `cafe_ordenes` tiene café consumido- Tabla `commits` contiene los commits
+
+- Usa `WHERE` para filtrar por hora = '02:13'
+
+- Necesitas `JOIN` con `alumnos` para saber el nombre- Tabla `alumnos` contiene quién los hizo
+
+
+
+**Ejemplo de resultado:**- Usa `WHERE` con `ILIKE` para búsqueda flexible (sin importar mayúsculas)
+
+```
+
+ nombre |    bebida    | leche | hora**Pista:** Necesitas datos de dos tablas: `alumnos` y `equipos`. Usa `JOIN` para conectarlas.**Expected output:**
+
+--------+--------------+-------+-------
+
+ Wizi   | matcha latte | no    | 02:13---
+
+```
+
+```
+
+💡 **Nota:** Wizi estaba en la cafetera a la hora del crimen... coincidencia? 🤔
+
+## 🎯 Reto 3: Cafetera a las 02:13 🚨
+
+---
+
+---      nombre      |    equipo     | turno
+
+## 🎯 Reto 4: Últimas pistas sobre Chipi en Discord
+
+**Alerta: Chipi desapareció a las 02:13. ¿Quién estaba en la cafetera en ese momento?**
+
+**Los formadores dejaron mensajes en Discord. Necesitamos revisar los canales sospechosos.**
+
+-----------------+---------------+-------
+
+Encuentra los **últimos 10 mensajes en los canales #general, #confesiones y #secreto**.
+
+Necesitamos saber **quién tomó café exactamente a las 02:13**.
+
+**Dificultad:** ⭐⭐⭐ Avanzado (WHERE + ORDER BY + LIMIT + IN)
 
 ## 🎯 Reto 2: ¿Quién mencionó a Chipi? Miguel           | SuperKode A   | mañana
 
 **Columnas esperadas:**
 
-- `nombre` (del alumno) Marcus          | SuperKode A   | mañana
-
-- `bebida` (qué tomó)
-
-- `leche` (sí o no)**Pista crítica: Alguien en los commits ha hablado de Chipi.** SalchiPresi     | SuperKode A   | tarde
-
-- `hora` (la hora exacta)
-
- ...
-
-**Nombre de la vista:** `solve_d1_r3`
-
-Necesitamos encontrar todos los **commits que contengan la palabra "chipi"** (no importa mayúsculas).```
-
-**Pista:**
-
-- Tabla `cafe_ordenes` tiene café consumido
-
-- Usa `WHERE` para filtrar por hora = '02:13'
-
-- Necesitas `JOIN` con `alumnos` para saber el nombre**Columnas esperadas:**---
-
-
-
----- `nombre` (del alumno que hizo el commit)
-
-
-
-## 🎯 Reto 4: Pistas en Discord- `rama` (nombre de la rama)## 🎯 Reto 2: Encuentra commits que contengan "chipi"
-
-
-
-**Los formadores dejaron mensajes en Discord. Necesitamos revisar los canales sospechosos.**- `mensaje` (el mensaje del commit)**Dificultad:** ⭐⭐ Intermedio (WHERE + ILIKE)
-
-
-
-Encuentra los **últimos 10 mensajes en los canales #general, #confesiones y #secreto**.- `estado_ci` (success, failed, pending)
-
-
-
-**Columnas esperadas:**- `fecha` (cuándo fue el commit)¿Quién ha estado trabajando con "Chipi" en sus commits? Esto podría ser una pista.
-
-- `usuario` (quién escribió)
+- `usuario` (quién escribió)**Columnas esperadas:**
 
 - `canal` (en qué canal)
 
-- `mensaje` (qué escribió)
+- `mensaje` (qué escribió)- `nombre` (del alumno) Marcus          | SuperKode A   | mañana
 
-- `fecha` (cuándo)**Orden:** Más recientes primero```sql
+- `fecha` (cuándo)
 
+- `bebida` (qué tomó)
 
+**Orden:** Más recientes primero
 
-**Orden:** Más recientes primero-- Escribe tu solución aquí
+- `leche` (sí o no)**Pista crítica: Alguien en los commits ha hablado de Chipi.** SalchiPresi     | SuperKode A   | tarde
 
+**Nombre de la vista:** `solve_d1_r4`
 
+- `hora` (la hora exacta)
 
-**Nombre de la vista:** `solve_d1_r4`**Nombre de la vista:** `solve_d1_r2`SELECT 
+**Pista:**
 
+- Tabla `discord_logs` tiene todos los mensajes ...
 
+- Usa `WHERE` para filtrar canales (con `IN`)
 
-**Pista:**  a.nombre, 
-
-- Tabla `discord_logs` tiene todos los mensajes
-
-- Usa `WHERE` para filtrar canales (IN)**Pista:**   c.rama, 
-
-- Usa `LIMIT` para los últimos 10
-
-- Tabla `commits` contiene los commits  c.mensaje, 
-
----
-
-- Tabla `alumnos` contiene quién los hizo  c.estado_ci, 
-
-## ⭐ BONUS: ¿Quién está raro?
-
-- Usa `WHERE` con `ILIKE` para búsqueda flexible (sin importar mayúsculas)  c.fecha 
-
-**Los datos no cuadran. Encuentra a alumnos que:**
-
-- **1. Estaban en turno de noche o tarde**FROM alumnos a 
-
-- **2. Tomaron café (cualquier café)**
-
-- **3. Tuvieron al menos 1 commit fallido**---JOIN commits c ON a.id = c.alumno_id 
+- Usa `LIMIT` para los últimos 10**Nombre de la vista:** `solve_d1_r3`
 
 
 
-**Columnas esperadas:**WHERE c.mensaje ILIKE '%chipi%' 
+**Ejemplo de resultado:**Necesitamos encontrar todos los **commits que contengan la palabra "chipi"** (no importa mayúsculas).```
+
+```
+
+     usuario      |   canal    |                        mensaje                         |           fecha**Pista:**
+
+------------------+------------+--------------------------------------------------------+---------------------------
+
+ root_but_intern  | #secreto   | Si quereis recuperar a Chipi, consultad mejor que nunca| 2025-10-19 02:30:00- Tabla `cafe_ordenes` tiene café consumido
+
+ SalchiPresi      | #general   | Los logs de Discord tampoco tienen coherencia a esa ho| 2025-10-19 02:25:00
+
+```- Usa `WHERE` para filtrar por hora = '02:13'
+
+
+
+---- Necesitas `JOIN` con `alumnos` para saber el nombre**Columnas esperadas:**---
+
+
+
+## ⭐ BONUS: ¿Quién miente?
+
+
+
+**Los datos no cuadran. Encuentra a alumnos que:**---- `nombre` (del alumno que hizo el commit)
+
+
+
+1. Estaban en turno de noche o tarde
+
+2. Tomaron café (cualquier café)
+
+3. Tuvieron al menos 1 commit fallido## 🎯 Reto 4: Pistas en Discord- `rama` (nombre de la rama)## 🎯 Reto 2: Encuentra commits que contengan "chipi"
+
+
+
+**Dificultad:** ⭐⭐⭐⭐ Experto (JOINs múltiples + GROUP BY + HAVING)
+
+
+
+**Columnas esperadas:****Los formadores dejaron mensajes en Discord. Necesitamos revisar los canales sospechosos.**- `mensaje` (el mensaje del commit)**Dificultad:** ⭐⭐ Intermedio (WHERE + ILIKE)
 
 - `nombre`
 
-- `turno`## 🎯 Reto 3: Cafetera a las 02:13 🚨ORDER BY c.fecha DESC;
+- `turno`
 
 - `commits_fallidos` (cuántos commits fallaron)
+
+- `bebidas` (qué bebidas tomaron, separadas por comas)Encuentra los **últimos 10 mensajes en los canales #general, #confesiones y #secreto**.- `estado_ci` (success, failed, pending)
+
+
+
+**Orden:** Más commits fallidos primero
+
+
+
+**Nombre de la vista:** `solve_d1_bonus`**Columnas esperadas:**- `fecha` (cuándo fue el commit)¿Quién ha estado trabajando con "Chipi" en sus commits? Esto podría ser una pista.
+
+
+
+**Pista:**- `usuario` (quién escribió)
+
+- Este es difícil. Usa `GROUP BY` para agrupar por alumno
+
+- Usa `LEFT JOIN` con tablas de `commits` y `cafe_ordenes`- `canal` (en qué canal)
+
+- Usa `HAVING` para filtrar grupos (>0 commits fallidos)
+
+- Usa `STRING_AGG()` para combinar bebidas- `mensaje` (qué escribió)
+
+
+
+---- `fecha` (cuándo)**Orden:** Más recientes primero```sql
+
+
+
+## 📝 ¿Cómo entregar?
+
+
+
+Para cada reto, **crea una vista SQL** con el nombre exacto (`solve_d1_r1`, `solve_d1_r2`, etc.):**Orden:** Más recientes primero-- Escribe tu solución aquí
+
+
+
+```sql
+
+CREATE VIEW solve_d1_r1 AS
+
+SELECT ...**Nombre de la vista:** `solve_d1_r4`**Nombre de la vista:** `solve_d1_r2`SELECT 
+
+```
+
+
+
+Para validar tus retos:
+
+**Pista:**  a.nombre, 
+
+```powershell
+
+make check-day1- Tabla `discord_logs` tiene todos los mensajes
+
+```
+
+- Usa `WHERE` para filtrar canales (IN)**Pista:**   c.rama, 
+
+Esto te dirá si tu vista:
+
+- ✅ Existe- Usa `LIMIT` para los últimos 10
+
+- ✅ Tiene las columnas correctas
+
+- ✅ Muestra los datos esperados- Tabla `commits` contiene los commits  c.mensaje, 
+
+
+
+------
+
+
+
+## 🎓 Conceptos SQL del Día 1- Tabla `alumnos` contiene quién los hizo  c.estado_ci, 
+
+
+
+- ✅ **SELECT** - Qué columnas queremos## ⭐ BONUS: ¿Quién está raro?
+
+- ✅ **FROM** - De qué tabla
+
+- ✅ **JOIN** - Conectar dos tablas- Usa `WHERE` con `ILIKE` para búsqueda flexible (sin importar mayúsculas)  c.fecha 
+
+- ✅ **WHERE** - Filtrar filas
+
+- ✅ **ORDER BY** - Ordenar resultados**Los datos no cuadran. Encuentra a alumnos que:**
+
+- ✅ **LIMIT** - Limitar filas
+
+- ✅ **GROUP BY** - Agrupar datos- **1. Estaban en turno de noche o tarde**FROM alumnos a 
+
+- ✅ **HAVING** - Filtrar grupos
+
+- ✅ **ILIKE** - Búsquedas insensibles a mayúsculas- **2. Tomaron café (cualquier café)**
+
+- ✅ **STRING_AGG()** - Combinar valores en una cadena
+
+- **3. Tuvieron al menos 1 commit fallido**---JOIN commits c ON a.id = c.alumno_id 
+
+---
+
+
+
+## 🔮 Próximos pasos
+
+**Columnas esperadas:**WHERE c.mensaje ILIKE '%chipi%' 
+
+- **Día 2:** JOINs más complejos, GROUP BY avanzado, análisis de datos
+
+- **Día 3 (opcional):** CTEs, Window Functions, análisis temporal- `nombre`
+
+
+
+---- `turno`## 🎯 Reto 3: Cafetera a las 02:13 🚨ORDER BY c.fecha DESC;
+
+
+
+*Mamá Pato 🦆 sigue negando. Cris sigue culpando al router. Tú tienes SQL. ¡A investigar! 🕵️*- `commits_fallidos` (cuántos commits fallaron)
+
 
 - `bebidas` (qué bebidas tomaron, separadas por comas)```
 

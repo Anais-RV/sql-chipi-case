@@ -1,4 +1,4 @@
-# 🐼 sql-chipi-case: Retos del Día 2 - JOINs y Análisis# 🐼 sql-chipi-case: Retos del Día 2 - JOINs y Análisis# 🐼 sql-chipi-case: Retos del Día 2 - JOINs y Análisis Avanzado
+# 🐼 sql-chipi-case: Retos del Día 2 - JOINs y Análisis# 🐼 sql-chipi-case: Retos del Día 2 - JOINs y Análisis# 🐼 sql-chipi-case: Retos del Día 2 - JOINs y Análisis# 🐼 sql-chipi-case: Retos del Día 2 - JOINs y Análisis Avanzado
 
 
 
@@ -6,215 +6,433 @@
 
 
 
-**Día 1 te dio pistas básicas. Ahora necesitas hacer análisis más profundos.**## 📖 Contexto## 📖 Contexto
+**Día 1 te dio pistas básicas. Ahora necesitas hacer análisis más profundos.**## 📖 Contexto
 
 
 
-Vas a conectar múltiples tablas y usar agregaciones para descubrir patrones sospechosos.Los retos del Día 1 te dieron pistas. Ahora necesitas análisis más profundos para descubrir quién miente.
+Vas a conectar múltiples tablas y usar agregaciones para descubrir patrones sospechosos.
 
 
 
----**Día 1 te dio pistas básicas. Ahora necesitas hacer análisis más profundos.**
+---**Día 1 te dio pistas básicas. Ahora necesitas hacer análisis más profundos.**## 📖 Contexto## 📖 Contexto
 
 
 
-## 🎯 Reto 1: ¿Cuántos alumnos hay en cada equipo?---
+## 🎯 Reto 1: ¿Cuántos alumnos hay en cada equipo?
 
 
 
-**Necesitamos saber cuántos miembros tiene cada equipo.**Vas a conectar múltiples tablas y usar agregaciones para descubrir patrones sospechosos.
+**Necesitamos saber cuántos miembros tiene cada equipo.**Vas a conectar múltiples tablas y usar agregaciones para descubrir patrones sospechosos.Los retos del Día 1 te dieron pistas. Ahora necesitas análisis más profundos para descubrir quién miente.
 
 
 
-Agrupa por equipo y cuenta cuántos alumnos hay en cada uno.## 🎯 Reto 1: ¿Cuántos alumnos hay en cada equipo?
+Agrupa por equipo y cuenta cuántos alumnos hay en cada uno.
 
 
 
-**Columnas esperadas:**---**Dificultad:** ⭐⭐ Intermedio (GROUP BY + COUNT)
+**Dificultad:** ⭐⭐ Intermedio (GROUP BY + COUNT)---**Día 1 te dio pistas básicas. Ahora necesitas hacer análisis más profundos.**
+
+
+
+**Columnas esperadas:**
 
 - `equipo` (nombre del equipo)
 
-- `cantidad_alumnos` (cuántos alumnos)
+- `cantidad_alumnos` (cuántos alumnos)## 🎯 Reto 1: ¿Cuántos alumnos hay en cada equipo?---
 
 
 
-**Orden:** Mayor cantidad primero## 🎯 Reto 1: ¿Cuántos alumnos hay en cada equipo?Agrupa por equipo y cuenta miembros.
+**Orden:** Mayor cantidad primero
 
 
 
-**Nombre de la vista:** `solve_d2_r1`
+**Nombre de la vista:** `solve_d2_r1`**Necesitamos saber cuántos miembros tiene cada equipo.**Vas a conectar múltiples tablas y usar agregaciones para descubrir patrones sospechosos.
 
 
-
-**Pista:****Necesitamos saber cuántos miembros tiene cada equipo.**```sql
-
-- Usa `COUNT()` para contar
-
-- Usa `GROUP BY` para agrupar por equipoSELECT 
-
-- Usa `ORDER BY` con DESC
-
-Agrupa por equipo y cuenta cuántos alumnos hay en cada uno.  e.nombre as equipo, 
-
----
-
-  COUNT(a.id) as cantidad_alumnos 
-
-## 🎯 Reto 2: ¿En qué ramas trabajó cada alumno?
-
-**Columnas esperadas:**FROM equipos e 
-
-**Necesitamos saber: alumno → qué ramas usó**
-
-- `equipo` (nombre del equipo)LEFT JOIN alumnos a ON e.id = a.equipo_id 
-
-Para cada alumno, combina todas sus ramas en una línea (separadas por comas).
-
-- `cantidad_alumnos` (cuántos alumnos)GROUP BY e.id, e.nombre 
-
-**Columnas esperadas:**
-
-- `nombre` (del alumno)ORDER BY cantidad_alumnos DESC;
-
-- `ramas` (lista de ramas donde trabajó, separadas por ", ")
-
-**Orden:** Mayor cantidad primero```
-
-**Orden:** Alfabético por nombre
-
-
-
-**Nombre de la vista:** `solve_d2_r2`
-
-**Nombre de la vista:** `solve_d2_r1`---
 
 **Pista:**
 
-- Usa `STRING_AGG()` para combinar strings
+- Usa `COUNT()` para contar
 
-- Usa `GROUP BY` para agrupar por alumno
+- Usa `GROUP BY` para agrupar por equipoAgrupa por equipo y cuenta cuántos alumnos hay en cada uno.## 🎯 Reto 1: ¿Cuántos alumnos hay en cada equipo?
 
-- Si un alumno no tiene commits, debería aparecer sin ramas (usa `LEFT JOIN`)**Pista:**## 🎯 Reto 2: ¿Quién trabajó en qué rama?
-
-
-
----- Usa `COUNT()` para contar**Dificultad:** ⭐⭐ Intermedio (GROUP BY + STRING_AGG)
+- Usa `ORDER BY` con DESC
 
 
 
-## 🎯 Reto 3: ¿Quién tiene commits fallidos?- Usa `GROUP BY` para agrupar por equipo
+**Ejemplo de resultado:**
+
+```**Columnas esperadas:**---**Dificultad:** ⭐⭐ Intermedio (GROUP BY + COUNT)
+
+     equipo      | cantidad_alumnos
+
+-----------------+------------------- `equipo` (nombre del equipo)
+
+ SuperKode A     |                5
+
+ SuperKode B     |                4- `cantidad_alumnos` (cuántos alumnos)
+
+ SuperKode C     |                4
+
+```
 
 
 
-**Sabemos que alguien tiene muchos commits fallidos. ¿Quién es?**- Usa `ORDER BY` con DESCMuestra para cada alumno sus ramas de trabajo.
+---**Orden:** Mayor cantidad primero## 🎯 Reto 1: ¿Cuántos alumnos hay en cada equipo?Agrupa por equipo y cuenta miembros.
 
 
 
-Para cada alumno, cuenta cuántos commits fallidos (estado_ci = 'failed') tiene.
+## 🎯 Reto 2: ¿En qué ramas trabajó cada alumno?
 
 
 
-**Columnas esperadas:**---```sql
+**Necesitamos saber: alumno → qué ramas usó****Nombre de la vista:** `solve_d2_r1`
+
+
+
+Para cada alumno, combina todas sus ramas en una línea (separadas por comas).
+
+
+
+**Dificultad:** ⭐⭐ Intermedio (GROUP BY + STRING_AGG + LEFT JOIN)**Pista:****Necesitamos saber cuántos miembros tiene cada equipo.**```sql
+
+
+
+**Columnas esperadas:**- Usa `COUNT()` para contar
 
 - `nombre` (del alumno)
 
-- `commits_fallidos` (cuántos commits fallaron)SELECT 
+- `ramas` (lista de ramas donde trabajó, separadas por ", ")- Usa `GROUP BY` para agrupar por equipoSELECT 
 
 
 
-**Orden:** Mayor cantidad de fallos primero## 🎯 Reto 2: ¿En qué ramas trabajó cada alumno?  a.nombre, 
+**Orden:** Alfabético por nombre- Usa `ORDER BY` con DESC
 
 
 
-**Nombre de la vista:** `solve_d2_r3`  STRING_AGG(DISTINCT c.rama, ', ') as ramas 
+**Nombre de la vista:** `solve_d2_r2`Agrupa por equipo y cuenta cuántos alumnos hay en cada uno.  e.nombre as equipo, 
 
 
 
-**Pista:****Necesitamos saber: alumno → qué ramas usó**FROM alumnos a 
+**Pista:**---
 
-- Filtra donde `estado_ci = 'failed'`
+- Usa `STRING_AGG()` para combinar strings
 
-- Usa `COUNT()` para contarLEFT JOIN commits c ON a.id = c.alumno_id 
+- Usa `GROUP BY` para agrupar por alumno  COUNT(a.id) as cantidad_alumnos 
 
-- Usa `GROUP BY` para agrupar por alumno
+- Si un alumno no tiene commits, debería aparecer sin ramas (usa `LEFT JOIN`)
 
-- Usa `HAVING` para mostrar solo quiénes tienen al menos 1 falloPara cada alumno, combina todas sus ramas en una línea (separadas por comas).GROUP BY a.id, a.nombre 
+## 🎯 Reto 2: ¿En qué ramas trabajó cada alumno?
 
+**Ejemplo de resultado:**
 
+```**Columnas esperadas:**FROM equipos e 
 
----ORDER BY a.nombre;
+     nombre      |                       ramas
 
+------------------+-------------------------------------------------**Necesitamos saber: alumno → qué ramas usó**
 
+ Andrea           | main
 
-## 🎯 Reto 4: ¿Qué bebidas se consumieron más?**Columnas esperadas:**```
+ Cale             | main, fix/database, feature/auth- `equipo` (nombre del equipo)LEFT JOIN alumnos a ON e.id = a.equipo_id 
 
+ Cris             | main, dev/tests
 
+ ...Para cada alumno, combina todas sus ramas en una línea (separadas por comas).
 
-**En la cafetera, ¿qué se tomó más? Esto podría revelar patrones.**- `nombre` (del alumno)
+```
 
-
-
-Cuéntalas bebidas: quién bebió qué, cuántas veces.- `ramas` (lista de ramas donde trabajó, separadas por ", ")---
-
-
-
-**Columnas esperadas:**
-
-- `bebida` (nombre de la bebida)
-
-- `veces_consumida` (cuántas veces alguien la pidió)**Orden:** Alfabético por nombre## 🎯 Reto 3: Análisis de commits por estado
-
-
-
-**Orden:** Más consumidas primero**Dificultad:** ⭐⭐⭐ Avanzado (GROUP BY + HAVING)
-
-
-
-**Nombre de la vista:** `solve_d2_r4`**Nombre de la vista:** `solve_d2_r2`
-
-
-
-**Pista:**¿Quién tiene más commits fallidos?
-
-- Tabla `cafe_ordenes` tiene las bebidas
-
-- Usa `COUNT()` para contar**Pista:**
-
-- Usa `GROUP BY` para agrupar por bebida
-
-- Usa `STRING_AGG()` para combinar strings```sql
+- `cantidad_alumnos` (cuántos alumnos)GROUP BY e.id, e.nombre 
 
 ---
 
-- Usa `GROUP BY` para agrupar por alumnoSELECT 
+**Columnas esperadas:**
 
-## ⭐ BONUS: Timeline de todo lo que pasó
+## 🎯 Reto 3: Análisis de commits por estado
 
-- Si un alumno no tiene commits, debería aparecer sin ramas (usa `LEFT JOIN`)  a.nombre, 
+- `nombre` (del alumno)ORDER BY cantidad_alumnos DESC;
+
+**Sabemos que alguien tiene muchos commits fallidos. ¿Quién es?**
+
+- `ramas` (lista de ramas donde trabajó, separadas por ", ")
+
+Para cada alumno, cuenta cuántos commits fallidos (estado_ci = 'failed') tiene.
+
+**Orden:** Mayor cantidad primero```
+
+**Dificultad:** ⭐⭐⭐ Avanzado (GROUP BY + HAVING + WHERE)
+
+**Orden:** Alfabético por nombre
+
+**Columnas esperadas:**
+
+- `nombre` (del alumno)
+
+- `commits_fallidos` (cuántos commits fallaron)
+
+**Nombre de la vista:** `solve_d2_r2`
+
+**Orden:** Mayor cantidad de fallos primero
+
+**Nombre de la vista:** `solve_d2_r1`---
+
+**Nombre de la vista:** `solve_d2_r3`
+
+**Pista:**
+
+**Pista:**
+
+- Filtra donde `estado_ci = 'failed'`- Usa `STRING_AGG()` para combinar strings
+
+- Usa `COUNT()` para contar
+
+- Usa `GROUP BY` para agrupar por alumno- Usa `GROUP BY` para agrupar por alumno
+
+- Usa `HAVING` para mostrar solo quiénes tienen al menos 1 fallo
+
+- Si un alumno no tiene commits, debería aparecer sin ramas (usa `LEFT JOIN`)**Pista:**## 🎯 Reto 2: ¿Quién trabajó en qué rama?
+
+**Ejemplo de resultado:**
+
+```
+
+    nombre     | commits_fallidos
+
+---------------+---------------------- Usa `COUNT()` para contar**Dificultad:** ⭐⭐ Intermedio (GROUP BY + STRING_AGG)
+
+ David         |                3
+
+ Ramazan       |                2
+
+ Sara          |                1
+
+```## 🎯 Reto 3: ¿Quién tiene commits fallidos?- Usa `GROUP BY` para agrupar por equipo
+
+
+
+---
+
+
+
+## 🎯 Reto 4: ¿Qué bebidas se consumieron más?**Sabemos que alguien tiene muchos commits fallidos. ¿Quién es?**- Usa `ORDER BY` con DESCMuestra para cada alumno sus ramas de trabajo.
+
+
+
+**En la cafetera, ¿qué se tomó más? Esto podría revelar patrones.**
+
+
+
+Cuéntalas bebidas: quién bebió qué, cuántas veces.Para cada alumno, cuenta cuántos commits fallidos (estado_ci = 'failed') tiene.
+
+
+
+**Dificultad:** ⭐⭐ Intermedio (GROUP BY + COUNT + ORDER BY)
+
+
+
+**Columnas esperadas:****Columnas esperadas:**---```sql
+
+- `bebida` (nombre de la bebida)
+
+- `veces_consumida` (cuántas veces alguien la pidió)- `nombre` (del alumno)
+
+
+
+**Orden:** Más consumidas primero- `commits_fallidos` (cuántos commits fallaron)SELECT 
+
+
+
+**Nombre de la vista:** `solve_d2_r4`
+
+
+
+**Pista:****Orden:** Mayor cantidad de fallos primero## 🎯 Reto 2: ¿En qué ramas trabajó cada alumno?  a.nombre, 
+
+- Tabla `cafe_ordenes` tiene las bebidas
+
+- Usa `COUNT()` para contar
+
+- Usa `GROUP BY` para agrupar por bebida
+
+**Nombre de la vista:** `solve_d2_r3`  STRING_AGG(DISTINCT c.rama, ', ') as ramas 
+
+**Ejemplo de resultado:**
+
+```
+
+     bebida      | veces_consumida
+
+-----------------+------------------**Pista:****Necesitamos saber: alumno → qué ramas usó**FROM alumnos a 
+
+ café con leche  |                7
+
+ matcha latte    |                5- Filtra donde `estado_ci = 'failed'`
+
+ café solo       |                3
+
+```- Usa `COUNT()` para contarLEFT JOIN commits c ON a.id = c.alumno_id 
+
+
+
+---- Usa `GROUP BY` para agrupar por alumno
+
+
+
+## ⭐ BONUS: Timeline de todo lo que pasó- Usa `HAVING` para mostrar solo quiénes tienen al menos 1 falloPara cada alumno, combina todas sus ramas en una línea (separadas por comas).GROUP BY a.id, a.nombre 
+
+
 
 **Necesitamos ver TODO lo que sucedió entre las 02:00 y las 02:30 del 19 de octubre.**
 
-  c.estado_ci, 
 
-Combina eventos de:
 
-- Café consumido---  COUNT(c.id) as total_commits 
+Combina eventos de:---ORDER BY a.nombre;
+
+- Café consumido
 
 - Commits hechos
 
-- Mensajes en DiscordFROM alumnos a 
+- Mensajes en Discord
+
+## 🎯 Reto 4: ¿Qué bebidas se consumieron más?**Columnas esperadas:**```
+
+En UN SOLO resultado, cronológicamente ordenado.
 
 
 
-En UN SOLO resultado, cronológicamente ordenado.## 🎯 Reto 3: ¿Quién tiene commits fallidos?JOIN commits c ON a.id = c.alumno_id 
+**Dificultad:** ⭐⭐⭐⭐ Experto (UNION ALL + Múltiples JOINs)
 
+**En la cafetera, ¿qué se tomó más? Esto podría revelar patrones.**- `nombre` (del alumno)
 
-
-**Columnas esperadas:**GROUP BY a.id, a.nombre, c.estado_ci 
+**Columnas esperadas:**
 
 - `fecha` (cuándo pasó)
 
+- `tipo_evento` (qué tipo: 'café', 'commit', 'discord')
+
+- `quien` (quién/qué usuario)Cuéntalas bebidas: quién bebió qué, cuántas veces.- `ramas` (lista de ramas donde trabajó, separadas por ", ")---
+
+- `detalles` (qué pasó: bebida, mensaje del commit, etc.)
+
+
+
+**Orden:** Más reciente primero
+
+**Columnas esperadas:**
+
+**Nombre de la vista:** `solve_d2_bonus`
+
+- `bebida` (nombre de la bebida)
+
+**Pista:**
+
+- Este es avanzado. Usa `UNION ALL` para combinar 3 SELECTs diferentes- `veces_consumida` (cuántas veces alguien la pidió)**Orden:** Alfabético por nombre## 🎯 Reto 3: Análisis de commits por estado
+
+- Cada SELECT debe tener las mismas 4 columnas
+
+- Filtra por hora entre 02:00 y 02:30
+
+- Ordena el resultado final por fecha DESC
+
+**Orden:** Más consumidas primero**Dificultad:** ⭐⭐⭐ Avanzado (GROUP BY + HAVING)
+
+**Ejemplo de resultado:**
+
+```
+
+            fecha            | tipo_evento |      quien      |                    detalles
+
+-----------------------------+-------------+-----------------+--------------------------------------------**Nombre de la vista:** `solve_d2_r4`**Nombre de la vista:** `solve_d2_r2`
+
+ 2025-10-19 02:30:00         | discord     | root_but_intern | Si quereis recuperar a Chipi...
+
+ 2025-10-19 02:25:00         | commit      | David           | hotfix/chipi-emergency: EMERGENCIA...
+
+ 2025-10-19 02:13:00         | café        | Wizi            | matcha latte (sin leche)
+
+```**Pista:**¿Quién tiene más commits fallidos?
+
+
+
+---- Tabla `cafe_ordenes` tiene las bebidas
+
+
+
+## 📝 ¿Cómo entregar?- Usa `COUNT()` para contar**Pista:**
+
+
+
+Para cada reto, **crea una vista SQL** con el nombre exacto:- Usa `GROUP BY` para agrupar por bebida
+
+
+
+```sql- Usa `STRING_AGG()` para combinar strings```sql
+
+CREATE VIEW solve_d2_r1 AS
+
+SELECT ...---
+
+```
+
+- Usa `GROUP BY` para agrupar por alumnoSELECT 
+
+Para validar tus retos:
+
+## ⭐ BONUS: Timeline de todo lo que pasó
+
+```powershell
+
+make check-day2- Si un alumno no tiene commits, debería aparecer sin ramas (usa `LEFT JOIN`)  a.nombre, 
+
+```
+
+**Necesitamos ver TODO lo que sucedió entre las 02:00 y las 02:30 del 19 de octubre.**
+
+---
+
+  c.estado_ci, 
+
+## 🎓 Conceptos SQL del Día 2
+
+Combina eventos de:
+
+- ✅ **COUNT()** - Contar filas
+
+- ✅ **GROUP BY** - Agrupar datos- Café consumido---  COUNT(c.id) as total_commits 
+
+- ✅ **HAVING** - Filtrar grupos
+
+- ✅ **STRING_AGG()** - Combinar strings- Commits hechos
+
+- ✅ **ORDER BY DESC** - Ordenar descendente
+
+- ✅ **LEFT JOIN** - JOINs preservando tabla izquierda- Mensajes en DiscordFROM alumnos a 
+
+- ✅ **UNION ALL** - Combinar múltiples queries
+
+- ✅ **WHERE** con agregaciones - Filtrar antes de agrupar
+
+
+
+---En UN SOLO resultado, cronológicamente ordenado.## 🎯 Reto 3: ¿Quién tiene commits fallidos?JOIN commits c ON a.id = c.alumno_id 
+
+
+
+## 🔮 Próximos pasos
+
+
+
+- **Día 3 (opcional):** CTEs, Window Functions, análisis temporal avanzado**Columnas esperadas:**GROUP BY a.id, a.nombre, c.estado_ci 
+
+- **Conclusión:** ¿Quién secuestró a Chipi?
+
+- `fecha` (cuándo pasó)
+
+---
+
 - `tipo_evento` (qué tipo: 'café', 'commit', 'discord')**Sabemos que alguien tiene muchos commits fallidos. ¿Quién es?**HAVING c.estado_ci = 'failed' 
+
+*Mamá Pato 🦆 sigue negando. Cris sigue culpando al router. Tú tienes SQL. ¡Casi lo resuelves! 🕵️*
 
 - `quien` (quién/qué usuario)
 
