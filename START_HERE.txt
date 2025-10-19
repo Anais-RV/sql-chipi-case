@@ -1,0 +1,300 @@
+╔══════════════════════════════════════════════════════════════════════╗
+║                                                                      ║
+║         🎉 ¡BIENVENIDO A SQL-CHIPI-CASE! 🎉                       ║
+║                                                                      ║
+║    Proyecto Educativo SQL - SuperKode Bootcamp                      ║
+║                                                                      ║
+║    Chipi 🐼 ha sido secuestrada. Usa SQL para resolver el caso.    ║
+║                                                                      ║
+╚══════════════════════════════════════════════════════════════════════╝
+
+
+🚀 INICIO RÁPIDO EN 3 PASOS (5 MINUTOS)
+═══════════════════════════════════════════════════════════════════════
+
+PASO 1: Abre PowerShell aquí
+────────────────────────────────────────────────────────────────────────
+Localización: c:\SUPERKODE\BACKEND\sql-chipi-case
+
+Haz clic derecho → "Abrir Terminal PowerShell aquí"
+
+
+PASO 2: Configura PostgreSQL
+────────────────────────────────────────────────────────────────────────
+Copia y pega esto en PowerShell:
+
+    $env:PGPASSWORD="postgres"
+
+
+PASO 3: Ejecuta el setup
+────────────────────────────────────────────────────────────────────────
+Copia y pega esto en PowerShell:
+
+    make setup
+
+¡Espera 10 segundos mientras se inicializa la base de datos!
+
+
+✨ LISTO
+────────────────────────────────────────────────────────────────────────
+Si todo went well, verás mensajes como:
+  ✓ Base de datos chipi_case creada.
+  ✓ Tablas creadas.
+  ✓ Datos cargados.
+
+
+═══════════════════════════════════════════════════════════════════════
+
+SIGUIENTE: ABRE DBEAVER
+═══════════════════════════════════════════════════════════════════════
+
+1. Descarga e instala DBeaver (gratuito):
+   → https://dbeaver.io/download/
+
+2. Abre DBeaver
+
+3. Click en: Database → New Database Connection
+
+4. Selecciona: PostgreSQL
+
+5. Completa el formulario:
+   - Host: localhost
+   - Port: 5432
+   - Database: chipi_case
+   - Username: postgres
+   - Password: postgres
+
+6. Click en: Test Connection (si todo va bien)
+
+7. Click en: Finish
+
+8. Explora la base de datos "chipi_case" en el árbol izquierdo
+
+
+═══════════════════════════════════════════════════════════════════════
+
+COMIENZA TU INVESTIGACIÓN
+═══════════════════════════════════════════════════════════════════════
+
+1. LEE ESTO PRIMERO (5 min):
+   📖 challenges/day1_select_basics.md
+   
+2. ABRE DBEAVER Y ESCRIBE QUERIES
+
+3. INTENTA RESOLVER ESTOS RETOS:
+
+   ✓ Reto 1 (Básico):
+     Lista todos los alumnos con su equipo y turno.
+     
+   ✓ Reto 2 (Básico):
+     Encuentra commits que contengan "chipi".
+     
+   ✓ Reto 3 (CRÍTICO 🚨):
+     ¿Quién tomó café a las 02:13?
+     
+   ✓ Reto 4 (Intermedio):
+     Encuentra pistas en Discord.
+     
+   ✓ BONUS (Avanzado):
+     Correlaciona todos los datos sospechosos.
+
+4. ¡DESCUBRE AL CULPABLE! 🕵️
+
+
+═══════════════════════════════════════════════════════════════════════
+
+ARCHIVOS QUE NECESITAS LEER
+═══════════════════════════════════════════════════════════════════════
+
+🟢 PARA PRINCIPIANTES:
+   1. QUICKSTART.md ← Empieza aquí
+   2. challenges/day1_select_basics.md ← Retos iniciales
+
+🔵 DOCUMENTACIÓN:
+   3. README.md ← Información completa
+   4. SCHEMA_REFERENCE.md ← Referencia técnica
+
+🟡 AVANZADO:
+   5. challenges/day2_joins_analysis.md ← Retos día 2
+
+🟣 CONTEXTO:
+   6. lore/nota_secuestro.txt ← La historia
+
+⚫ RESÚMENES:
+   7. INDEX.md ← Índice del proyecto
+   8. PROYECTO_COMPLETADO.txt ← Resumen
+
+
+═══════════════════════════════════════════════════════════════════════
+
+ESTRUCTURA DEL PROYECTO
+═══════════════════════════════════════════════════════════════════════
+
+📁 sql-chipi-case/
+│
+├── 🚀 QUICKSTART.md ← LEER PRIMERO
+│   └─ 3 pasos para empezar (este archivo)
+│
+├── 📖 README.md
+│   └─ Documentación completa
+│
+├── 🎮 challenges/
+│   ├─ day1_select_basics.md ← RETOS INICIALES
+│   └─ day2_joins_analysis.md
+│
+├── 💾 db/
+│   ├─ 00_schema.sql (tablas)
+│   └─ 01_seed.sql (datos)
+│
+├── 📖 lore/
+│   └─ nota_secuestro.txt (historia)
+│
+├── ⚙️ Makefile
+│   └─ Comandos: setup, reset, clean
+│
+└── 📚 Otros:
+    ├─ INDEX.md
+    ├─ SCHEMA_REFERENCE.md
+    ├─ PROYECTO_COMPLETADO.txt
+    └─ RESUMEN_FINAL.txt
+
+
+═══════════════════════════════════════════════════════════════════════
+
+LA HISTORIA EN BREVE
+═══════════════════════════════════════════════════════════════════════
+
+🐼 VÍCTIMA: Chipi
+   Desaparecida el 19/10/2025 a las 02:13
+   Ubicación: Desconocida
+
+👥 SOSPECHOSOS (12 alumnos):
+   Miguel, SalchiPresi, Marcus, Daniel, Roxy, Cale,
+   La Rusa, Ramazan, Wizi, Sara, Rubén, David
+
+🎭 FORMADORES (todos niegan):
+   Cris: "Fue el router"
+   Andrea: "Fue el pipeline"
+   Yeraldín: "Revisar los commits"
+   Mamá Pato 🦆: "Yo no fui" (QUACK QUACK)
+
+🔍 PISTAS PRINCIPALES:
+   ☕ Alguien tomó bebida a las 02:13 en la cafetera
+   💻 Commits mencionan "chipi" en el mensaje
+   💬 Logs de Discord revelan conversaciones sospechosas
+   🖥️ Una IP (192.168.1.109) fue la última activa
+
+
+═══════════════════════════════════════════════════════════════════════
+
+COMANDOS MAKE ÚTILES
+═══════════════════════════════════════════════════════════════════════
+
+make setup      ← Ejecutar esto primero
+                  (crea BD + tablas + datos)
+
+make reset      Borrar todo y empezar de cero
+                (útil si algo falla)
+
+make clean      Borrar solo la BD
+                
+make help       Ver todos los comandos disponibles
+
+
+═══════════════════════════════════════════════════════════════════════
+
+SI ALGO FALLA
+═══════════════════════════════════════════════════════════════════════
+
+❌ Error: "FATAL: role 'postgres' does not exist"
+   ✓ PostgreSQL no está instalado
+   ✓ Instala desde: postgresql.org
+
+❌ Error: "psql: command not found"
+   ✓ psql no está en PATH
+   ✓ Añade: C:\Program Files\PostgreSQL\16\bin
+
+❌ Error: "password authentication failed"
+   ✓ La contraseña es incorrecta
+   ✓ Intenta: $env:PGPASSWORD="postgres"
+
+❌ Error: "database chipi_case already exists"
+   ✓ Ya ejecutaste setup antes
+   ✓ Ejecuta: make reset
+
+❌ Error: "Permission denied"
+   ✓ Abre PowerShell como administrador
+
+
+═══════════════════════════════════════════════════════════════════════
+
+¿PREGUNTAS?
+═══════════════════════════════════════════════════════════════════════
+
+1. Lee README.md para documentación completa
+
+2. Lee SCHEMA_REFERENCE.md para referencia técnica
+
+3. Consulta challenges/day1_select_basics.md para ejemplos
+
+4. Experimenta escribiendo tus propias queries en DBeaver
+
+
+═══════════════════════════════════════════════════════════════════════
+
+CHEKLIST ANTES DE EMPEZAR
+═══════════════════════════════════════════════════════════════════════
+
+□ PostgreSQL 16 instalado y corriendo
+□ psql funciona en PowerShell (test: psql --version)
+□ Make instalado (test: make --version)
+□ DBeaver descargado e instalado
+□ Estoy en la carpeta: c:\SUPERKODE\BACKEND\sql-chipi-case
+□ He ejecutado: $env:PGPASSWORD="postgres"
+□ He ejecutado: make setup
+□ La BD chipi_case existe en PostgreSQL
+
+
+═══════════════════════════════════════════════════════════════════════
+
+PRÓXIMOS PASOS
+═══════════════════════════════════════════════════════════════════════
+
+→ Abre DBeaver y conecta a chipi_case
+
+→ Lee challenges/day1_select_basics.md
+
+→ Escribe tu primer query:
+   SELECT nombre, email, turno FROM alumnos;
+
+→ Resuelve los 5 retos del Día 1
+
+→ Continúa con Día 2 (análisis avanzado)
+
+→ ¡Descubre al culpable! 🕵️
+
+
+═══════════════════════════════════════════════════════════════════════
+
+¡ESTÁS LISTO! 🚀
+═══════════════════════════════════════════════════════════════════════
+
+Ejecuta en PowerShell ahora mismo:
+
+    $env:PGPASSWORD="postgres"
+    make setup
+
+Y luego abre DBeaver para comenzar tu investigación.
+
+
+╔════════════════════════════════════════════════════════════════════╗
+║                                                                    ║
+║  "Si quereis recuperar a Chipi,                                   ║
+║   consultad mejor que nunca."                                     ║
+║                                                                    ║
+║  Los datos están aquí. Las pistas están escondidas.              ║
+║  SQL es tu arma. ¡Que comience la investigación!                 ║
+║                                                                    ║
+║                      — root_but_intern                            ║
+║                                                                    ║
+╚════════════════════════════════════════════════════════════════════╝

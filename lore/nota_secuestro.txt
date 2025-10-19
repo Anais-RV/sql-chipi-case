@@ -1,0 +1,71 @@
+╔═══════════════════════════════════════════════════════════════╗
+║                   🚨 NOTA SECUESTRO 🚨                         ║
+║                    SuperKode - 19/10/2025                       ║
+╚═══════════════════════════════════════════════════════════════╝
+
+Chipi desapareció a las 02:13.
+
+LOS LOGS NO CUADRAN.
+
+---
+
+SOSPECHOSOS (según sus propias versiones):
+
+  🛠️ Cris: "Fue el router. Siempre es el router."
+  
+  🔧 Andrea: "El pipeline falló. Revisar el CI en esa hora."
+  
+  📊 Yeraldín: "Los commits revelan la verdad. Investigad."
+  
+  🦆 Mamá Pato: "Yo cuidaba a Chipi. *quack quack* No fui yo."
+
+---
+
+EVIDENCIA (conflictiva):
+
+  ⏰ Alguien tomó MATCHA LATTE a las 02:13 en la cafetera.
+     Wizi estaba ahí. O al menos, su orden aparece en el registro.
+  
+  💻 Commits sospechosos con "chipi" en el mensaje.
+     ¿Casualidad? ¿O pista deliberada?
+  
+  📡 La IP 192.168.1.109 (desktop de Wizi) fue la última
+     en registrar actividad en la base de datos.
+  
+  💬 Discord en pánico. #general, #dev, #confesiones.
+     Alguien confesó estar despierto.
+
+---
+
+INVESTIGADORES (vosotros):
+
+  Si quereis recuperar a Chipi, tendréis que CONSULTAR MEJOR QUE NUNCA.
+
+  Los datos no mienten. Las queries revelan la verdad.
+  
+  Las tablas son vuestras armas.
+  
+  SQL es vuestra salvación.
+
+---
+
+  ¿QUIÉN FUE?
+  ¿QUÉ PASÓ?
+  ¿DÓNDE ESTÁ CHIPI?
+
+  Resolved estos retos y lo descubriréis.
+
+---
+
+  — root_but_intern
+     (alguien que sabe demasiado)
+
+  P.D.: Mamá Pato sigue negando todo. Cris sigue culpando al router.
+
+╔═══════════════════════════════════════════════════════════════╗
+║  BASE DE DATOS: chipi_case                                   ║
+║  HOST: localhost                                              ║
+║  PORT: 5432                                                   ║
+║  USER: postgres                                               ║
+║  PASSWORD: postgres                                            ║
+╚═══════════════════════════════════════════════════════════════╝

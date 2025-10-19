@@ -1,0 +1,439 @@
+╔══════════════════════════════════════════════════════════════════════╗
+║                                                                      ║
+║                 ✨ PROYECTO COMPLETADO EXITOSAMENTE ✨             ║
+║                         sql-chipi-case 🐼                          ║
+║                                                                      ║
+║          Proyecto Educativo SQL - SuperKode Bootcamp                ║
+║                                                                      ║
+╚══════════════════════════════════════════════════════════════════════╝
+
+
+📊 RESUMEN DEL PROYECTO
+══════════════════════════════════════════════════════════════════════
+
+✅ Estado: LISTO PARA USAR
+
+📂 Ubicación:
+   c:\SUPERKODE\BACKEND\sql-chipi-case\
+
+📋 Archivos creados: 11
+   • 2 archivos SQL (esquema + datos)
+   • 2 archivos de retos (día 1 + día 2)
+   • 5 archivos de documentación
+   • 1 Makefile
+   • 1 narrativa
+   • 1 resumen de proyecto
+
+📦 Tamaño total: ~78 KB
+
+
+🎯 EL PROYECTO EN 60 SEGUNDOS
+══════════════════════════════════════════════════════════════════════
+
+QUÉ ES:
+  Un proyecto educativo para enseñar SQL resolviendo un misterio.
+  Chipi 🐼 ha sido secuestrada en el bootcamp SuperKode.
+  Debes usar SQL para resolver pistas y descubrir al culpable.
+
+PARA QUIÉN:
+  • Estudiantes de bootcamp
+  • Personas aprendiendo SQL
+  • Educadores buscando proyectos narrativos
+  • Equipos de DevOps/Data
+
+CÓMO FUNCIONA:
+  1. Base de datos con 12 alumnos y 8 tablas
+  2. Pistas distribuidas en commits, café, Discord
+  3. 10+ retos progresivos (básico → avanzado)
+  4. Narrativa coherente y divertida
+
+
+🚀 INICIO EN 3 COMANDOS
+══════════════════════════════════════════════════════════════════════
+
+Abre PowerShell en la carpeta del proyecto y ejecuta:
+
+  1️⃣  $env:PGPASSWORD="postgres"
+  
+  2️⃣  make setup
+  
+  3️⃣  Abre DBeaver y conecta a: chipi_case (localhost:5432)
+
+¡Listo! La base de datos está inicializada.
+
+
+📚 ARCHIVOS POR CATEGORÍA
+══════════════════════════════════════════════════════════════════════
+
+🔴 EMPIEZA AQUÍ:
+  □ QUICKSTART.md             (Guía de 3 pasos)
+  □ challenges/day1_select_basics.md  (Primeros retos)
+
+🟢 DOCUMENTACIÓN:
+  □ README.md                 (Documentación completa)
+  □ SCHEMA_REFERENCE.md       (Diagrama ER + referencias)
+  □ INDEX.md                  (Índice detallado)
+
+🟡 BASE DE DATOS:
+  □ db/00_schema.sql          (Definición de tablas)
+  □ db/01_seed.sql            (Datos iniciales)
+
+🔵 RETOS:
+  □ challenges/day1_select_basics.md    (Nivel: ⭐)
+  □ challenges/day2_joins_analysis.md   (Nivel: ⭐⭐)
+
+🟣 NARRATIVA:
+  □ lore/nota_secuestro.txt   (Contexto del misterio)
+
+⚙️ AUTOMATIZACIÓN:
+  □ Makefile                  (Comandos: setup, clean, reset)
+
+
+📈 CONTENIDO DEL PROYECTO
+══════════════════════════════════════════════════════════════════════
+
+BASE DE DATOS (chipi_case):
+  • 8 tablas relacionadas
+  • 79 registros coherentes
+  • 7 relaciones (foreign keys)
+  • 6 índices optimizados
+
+PERSONAJES:
+  • 12 alumnos investigadores
+  • 4 formadores sospechosos
+  • 1 mascota desaparecida (Chipi)
+  • 12 equipos de trabajo
+
+PISTAS DISTRIBUIDAS EN:
+  ✓ Commits con "chipi" en el mensaje
+  ✓ Orden de café a las 02:13 (hora del crimen)
+  ✓ Logs de Discord en múltiples canales
+  ✓ Dispositivos con IPs sospechosas
+  ✓ Ubicaciones desconocidas
+
+RETOS:
+  Día 1 (SELECT basics):        5 retos + 1 BONUS
+  Día 2 (JOINs & analysis):     5 retos + 1 BONUS
+  Próximos:                     Window functions, CTEs
+
+
+🎮 RETOS DISPONIBLES
+══════════════════════════════════════════════════════════════════════
+
+DÍA 1: SELECT BASICS
+┌─ Reto 1 ⭐
+│  Lista todos los alumnos con equipo y turno
+│  
+├─ Reto 2 ⭐⭐
+│  Encuentra commits que contengan "chipi"
+│  
+├─ Reto 3 ⭐⭐ 🚨 CRÍTICO
+│  ¿Quién tomó café a las 02:13? (hora del crimen)
+│  
+├─ Reto 4 ⭐⭐
+│  Últimas pistas en Discord
+│  
+├─ BONUS ⭐⭐⭐
+│  Análisis de correlaciones avanzadas
+│
+└─ Resultado: Identificar sospechosos principales
+
+DÍA 2: JOINS & ANALYSIS
+┌─ Reto 1 ⭐⭐
+│  COUNT y GROUP BY por equipo
+│  
+├─ Reto 2 ⭐⭐⭐
+│  JOINs múltiples (5 tablas)
+│  
+├─ Reto 3 ⭐⭐⭐
+│  Análisis de estados CI (success/failed)
+│  
+├─ Reto 4 ⭐⭐⭐
+│  Timeline de eventos (UNION de 3 tablas)
+│  
+├─ BONUS ⭐⭐⭐⭐
+│  Subqueries y CTEs avanzadas
+│
+└─ Resultado: Análisis temporal completo
+
+
+🔧 COMANDOS MAKE
+══════════════════════════════════════════════════════════════════════
+
+make setup        ← Ejecutar ESTO primero
+                    Crea: BD + tablas + datos
+
+make initdb       Crear solo la base de datos
+make schema       Crear solo las tablas
+make seed         Insertar solo datos
+make clean        Borrar todo
+make reset        Borrar y recrear (limpieza total)
+make help         Ver ayuda detallada
+
+
+💾 BASE DE DATOS: TABLAS
+══════════════════════════════════════════════════════════════════════
+
+equipos             3 registros
+  • SuperKode A (Backend)
+  • SuperKode B (Frontend)
+  • Los Pato Devs (DevOps)
+
+alumnos            12 registros  [INVESTIGADORES]
+  • 12 alumnos de SuperKode
+  • Turno: mañana o tarde
+  • Repartidos en 3 equipos
+
+commits            12 registros  [PISTAS EN MENSAJE]
+  • 6 con "chipi" en el mensaje
+  • Estados: success/failed/pending
+  • Ramas de trabajo
+
+cafe_ordenes       12 registros  [PISTA CRÍTICA ☕]
+  • Hora sospechosa: 02:13
+  • Bebida: matcha latte
+  • Persona: Wizi
+
+discord_logs       11 registros  [PISTAS CONFUSAS]
+  • Canales: #general, #dev, #confesiones
+  • Mensajes sobre Chipi
+  • Formadores negando todo
+
+dispositivos       12 registros  [IP SOSPECHOSA]
+  • IP: 192.168.1.109 (Wizi's desktop)
+  • Tipos: laptop, desktop
+  • Registrados a tiempo real
+
+ubicaciones         2 registros
+  • Chipi - Inicio: "Seguro"
+  • Última ubicación: "Desconocido"
+
+pistas              5 registros  [GUÍAS EDUCATIVAS]
+  • Códigos: P-CAF-01, P-COM-01, etc.
+  • Descripciones de retos
+  • SQL a ejecutar para verificar
+
+
+🎓 HABILIDADES A APRENDER
+══════════════════════════════════════════════════════════════════════
+
+NIVEL 1 - PRINCIPIANTE (Día 1):
+  ✅ SELECT básico
+  ✅ Columnas y alias
+  ✅ WHERE con condiciones
+  ✅ JOIN (INNER JOIN)
+  ✅ ORDER BY y LIMIT
+  ✅ Operadores de comparación
+
+NIVEL 2 - INTERMEDIO (Día 2):
+  ✅ JOINs múltiples (LEFT, INNER)
+  ✅ GROUP BY y agregaciones
+  ✅ COUNT, SUM, AVG, STRING_AGG
+  ✅ HAVING para filtrar grupos
+  ✅ UNION para combinar resultados
+  ✅ ILIKE para búsqueda de texto
+
+NIVEL 3 - AVANZADO (Futuro):
+  ✅ Subqueries (WHERE, FROM, SELECT)
+  ✅ CTEs (Common Table Expressions)
+  ✅ Window functions (ROW_NUMBER, RANK)
+  ✅ Análisis temporal con TIMESTAMP
+  ✅ Índices y optimización
+  ✅ Cortes de correlación de datos
+
+
+✨ CARACTERÍSTICAS ESPECIALES
+══════════════════════════════════════════════════════════════════════
+
+1. NARRATIVA INMERSIVA
+   • Contexto realista de bootcamp
+   • Personajes con personalidad
+   • Historia coherente y motivadora
+   • Diálogos graciosos (Mamá Pato, Cris)
+
+2. DATOS EDUCATIVOS
+   • Relaciones lógicas entre tablas
+   • Pistas distribuidas estratégicamente
+   • Múltiples ángulos de investigación
+   • Progresión clara de dificultad
+
+3. AUTOMATIZACIÓN COMPLETA
+   • "make setup" → listo en 10 segundos
+   • Compatible con Windows (PowerShell)
+   • PostgreSQL estándar (sin configuración)
+   • No requiere Docker/containers
+
+4. DOCUMENTACIÓN EXHAUSTIVA
+   • 5 archivos .md con explicaciones
+   • Comentarios dentro del SQL
+   • Ejemplos de queries
+   • Troubleshooting incluido
+
+5. ESCALABILIDAD
+   • Fácil añadir más retos
+   • Estructura modular y reutilizable
+   • Extensible con nuevas tablas
+   • Compatible con otros bootcamps
+
+
+🎯 CASOS DE USO
+══════════════════════════════════════════════════════════════════════
+
+EDUCACIÓN:
+  ✓ Bootcamps de programación
+  ✓ Cursos online de SQL
+  ✓ Escuelas de informática
+  ✓ Autoformación
+
+GAMIFICACIÓN:
+  ✓ Learning games
+  ✓ Team building con programadores
+  ✓ Competiciones de SQL
+  ✓ Hackathons educativos
+
+ENTRENAMIENTO:
+  ✓ Entrenar nuevos datos analysts
+  ✓ Onboarding de DevOps/Backend
+  ✓ Evaluación de habilidades SQL
+  ✓ Prácticas antes de entrevistas
+
+
+❓ PREGUNTAS FRECUENTES
+══════════════════════════════════════════════════════════════════════
+
+P: ¿Puedo usar esto con MySQL?
+R: No, está diseñado para PostgreSQL. Requiere características específicas.
+
+P: ¿Cuánto tiempo lleva completarlo?
+R: Día 1: 2-3 horas | Día 2: 3-4 horas | Total mínimo: 5-7 horas
+
+P: ¿Necesito saber SQL previamente?
+R: No, es para principiantes. Se progresa gradualmente.
+
+P: ¿Puedo modificar los datos?
+R: Sí, es educativo. Puedes editar, explorar y experimentar.
+
+P: ¿Funciona sin DBeaver?
+R: Sí, puedes usar psql o cualquier cliente PostgreSQL.
+
+P: ¿Es gratis?
+R: Sí, es un proyecto educativo de código abierto.
+
+
+📖 CÓMO LEER LA DOCUMENTACIÓN
+══════════════════════════════════════════════════════════════════════
+
+PASO 1: QUICKSTART.md (5 minutos)
+  ↓ Lee esto para setup rápido
+
+PASO 2: README.md (15 minutos)
+  ↓ Visión general completa del proyecto
+
+PASO 3: challenges/day1_select_basics.md (30 minutos)
+  ↓ Comienza los primeros retos
+
+PASO 4: SCHEMA_REFERENCE.md (consulta)
+  ↓ Cuando necesites referencia técnica
+
+PASO 5: Comienza a experimentar (∞)
+  ↓ Escribe tus propias queries
+
+
+🔒 REQUISITOS TÉCNICOS
+══════════════════════════════════════════════════════════════════════
+
+ESENCIAL:
+  ✓ PostgreSQL 16+ instalado
+  ✓ psql disponible en PATH
+  ✓ Make instalado
+  ✓ Windows/Mac/Linux
+
+RECOMENDADO:
+  ✓ DBeaver (interfaz gráfica)
+  ✓ Git (para versionado)
+  ✓ VSCode (para editar SQL)
+
+OPCIONAL:
+  ✓ pgAdmin (administración web)
+  ✓ DataGrip (IDE SQL profesional)
+  ✓ GitHub (compartir proyecto)
+
+
+🔧 INSTALACIÓN RÁPIDA (Windows)
+══════════════════════════════════════════════════════════════════════
+
+1. Instala PostgreSQL 16:
+   https://www.postgresql.org/download/windows/
+
+2. Instala Make:
+   - Opción A: GnuWin32 (gnuwin32.sourceforge.net)
+   - Opción B: Chocolatey (choco install make)
+   - Opción C: WSL 2 (si tienes Linux en Windows)
+
+3. Instala DBeaver (opcional):
+   https://dbeaver.io/download/
+
+4. Abre PowerShell y ejecuta:
+   $env:PGPASSWORD="postgres"
+   make setup
+
+
+✅ VERIFICACIÓN DE INSTALACIÓN
+══════════════════════════════════════════════════════════════════════
+
+Para verificar que todo está listo:
+
+1. PostgreSQL:
+   psql --version
+   (debe mostrar version 16.x)
+
+2. Make:
+   make --version
+   (debe mostrar GNU Make 4.x)
+
+3. Conexión:
+   $env:PGPASSWORD="postgres"
+   psql -h localhost -U postgres -c "SELECT version();"
+
+
+🎉 PRÓXIMOS PASOS
+══════════════════════════════════════════════════════════════════════
+
+1. Abre PowerShell en c:\SUPERKODE\BACKEND\sql-chipi-case
+2. Ejecuta: $env:PGPASSWORD="postgres"
+3. Ejecuta: make setup
+4. Lee: QUICKSTART.md (5 minutos)
+5. Lee: challenges/day1_select_basics.md
+6. ¡Resuelve los retos! 🔍
+7. ¡Descubre al culpable! 🐼
+
+
+═══════════════════════════════════════════════════════════════════════
+
+                       🎊 ¡LISTO PARA USAR! 🎊
+
+                    make setup → ¡A investigar!
+
+═══════════════════════════════════════════════════════════════════════
+
+
+╔════════════════════════════════════════════════════════════════════╗
+║                                                                    ║
+║        Chipi ha sido secuestrada. Los datos están aquí.          ║
+║                                                                    ║
+║   "Si quereis recuperar a Chipi,                                  ║
+║    consultad mejor que nunca."                                    ║
+║                                                                    ║
+║                       — root_but_intern                           ║
+║                        (alguien que sabe)                         ║
+║                                                                    ║
+║  P.D.: Mamá Pato 🦆 sigue negando todo.                          ║
+║        Cris sigue culpando al router.                             ║
+║        Andrea culpa al pipeline.                                  ║
+║        Yeraldín sospecha del CI.                                  ║
+║                                                                    ║
+║  La verdad está en tus queries. SQL es tu arma.                   ║
+║                                                                    ║
+║              ¡Que comience la investigación! 🕵️                 ║
+║                                                                    ║
+╚════════════════════════════════════════════════════════════════════╝

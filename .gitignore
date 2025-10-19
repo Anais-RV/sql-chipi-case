@@ -1,0 +1,12 @@
+# Archivos temporales y caché
+*.log
+*.tmp
+*.bak
+
+# Base de datos o dumps
+*.sql.backup
+*.db
+
+# Sistema
+.DS_Store
+Thumbs.db
