@@ -10,3 +10,9 @@
 # Sistema
 .DS_Store
 Thumbs.db
+
+# Soluciones del profesorado (NO subir a GitHub)
+instructor/
+instructor/**
+instructor/solutions/**
+
