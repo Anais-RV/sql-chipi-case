@@ -93,6 +93,39 @@ check-all: check-day0 check-day1 check-day2 check-day3 check-day4
 	@echo ""
 	@echo "✅ ¡TODAS LAS VALIDACIONES COMPLETADAS! 🎉"
 
+# ============================================================
+# TARGETS DE INSTRUCTOR (no documentados en help público)
+# ============================================================
+
+solutions-apply:
+	@echo "🧩 Aplicando soluciones (privadas, local)..."
+	@psql -h $(DB_HOST) -U $(DB_USER) -p $(DB_PORT) -d $(DB_NAME) -f instructor/solutions/apply_all.sql
+
+solutions-drop:
+	@echo "🧹 Eliminando vistas de soluciones..."
+	@psql -h $(DB_HOST) -U $(DB_USER) -p $(DB_PORT) -d $(DB_NAME) -f instructor/solutions/drop_all.sql
+
+check-coherence:
+	@echo "🔍 Coherence check (estructural, amable)..."
+	@psql -h $(DB_HOST) -U $(DB_USER) -p $(DB_PORT) -d $(DB_NAME) -f instructor/tests/coherence.sql
+
+check-all-with-solutions:
+	@echo "🧪 Validación completa CON soluciones aplicadas..."
+	@echo ""
+	@$(MAKE) solutions-apply
+	@echo ""
+	@$(MAKE) check-day0
+	@$(MAKE) check-day1
+	@$(MAKE) check-day2
+	@-$(MAKE) check-day3
+	@$(MAKE) check-day4
+	@echo ""
+	@$(MAKE) check-coherence
+	@echo ""
+	@$(MAKE) solutions-drop
+	@echo ""
+	@echo "✅ ¡VALIDACIÓN COMPLETA CON SOLUCIONES FINALIZADA! 🎉"
+
 setup:
 	@echo "🔄 Inicializando base de datos chipi_case..."
 	@$(MAKE) initdb

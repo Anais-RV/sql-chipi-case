@@ -129,7 +129,10 @@ INSERT INTO wifi_events (dispositivo_id, access_point, timestamp) VALUES
 INSERT INTO pistas (nivel, codigo, descripcion, query_ayuda) VALUES
 (3, 'P-MOTIVO-01',
  'Wizi confesó: "Chipi mordió mi cable Ethernet favorito. Ahora pagará con WiFi lento."',
- 'SELECT descripcion FROM pistas WHERE nivel = 3 AND codigo = ''P-MOTIVO-01'';');
+ 'SELECT descripcion FROM pistas WHERE nivel = 3 AND codigo = ''P-MOTIVO-01'';'),
+(3, 'P-CODIGO-RESCATE',
+ 'Código de rescate final: CH0213',
+ 'SELECT descripcion FROM pistas WHERE nivel = 3 AND codigo = ''P-CODIGO-RESCATE'';');
 
 -- Ubicación final de Chipi (Pasillo 3F es donde Wizi lo dejó)
 -- Nota: La tabla ubicaciones ya existe, solo verificamos que haya una fila con descripcion relevante
