@@ -106,3 +106,33 @@ INSERT INTO pistas (dia, codigo, descripcion, desbloqueo_sql) VALUES
 (2, 'P-EQU-01',
  'Pista 5: ¿Cuántos miembros hay en cada equipo?',
  'SELECT e.nombre, COUNT(a.id) as miembros FROM equipos e LEFT JOIN alumnos a ON e.id = a.equipo_id GROUP BY e.nombre;');
+
+-- ============================================================
+-- DAY 4: Datos para la revelación final
+-- ============================================================
+
+-- Door logs (accesos a puertas entre 01:00 y 03:00 del 2025-10-19)
+INSERT INTO door_logs (alumno_id, puerta, timestamp) VALUES
+(9, 'Sala Servidor', '2025-10-19 01:45:00'),  -- Wizi accede antes del secuestro
+(7, 'Entrada Principal', '2025-10-19 01:50:00'),
+(9, 'Sala Servidor', '2025-10-19 02:10:00'),  -- Última persona antes de las 02:13
+(11, 'Baño 2F', '2025-10-19 02:30:00');
+
+-- WiFi events (conexiones entre 02:00 y 04:00)
+INSERT INTO wifi_events (dispositivo_id, access_point, timestamp) VALUES
+(9, 'AP-Servidor-01', '2025-10-19 02:11:00'),  -- Desktop de Wizi en Sala Servidor
+(9, 'AP-Pasillo-3F', '2025-10-19 02:45:00'),   -- Después del secuestro, se mueve
+(1, 'AP-Aula-Main', '2025-10-19 02:20:00'),
+(11, 'AP-Baño-2F', '2025-10-19 02:31:00');
+
+-- Pista nivel 3 (solo accesible para el culpable, motivo del secuestro)
+INSERT INTO pistas (nivel, codigo, descripcion, query_ayuda) VALUES
+(3, 'P-MOTIVO-01',
+ 'Wizi confesó: "Chipi mordió mi cable Ethernet favorito. Ahora pagará con WiFi lento."',
+ 'SELECT descripcion FROM pistas WHERE nivel = 3 AND codigo = ''P-MOTIVO-01'';');
+
+-- Ubicación final de Chipi (Pasillo 3F es donde Wizi lo dejó)
+-- Nota: La tabla ubicaciones ya existe, solo verificamos que haya una fila con descripcion relevante
+INSERT INTO ubicaciones (nombre, descripcion) VALUES
+('Pasillo 3er Piso', 'Pasillo cerca del access point AP-Pasillo-3F')
+ON CONFLICT DO NOTHING;

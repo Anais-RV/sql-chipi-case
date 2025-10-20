@@ -3,7 +3,7 @@
 # Gestiona la base de datos PostgreSQL del proyecto
 # ============================================================
 
-.PHONY: help setup initdb schema seed clean reset check-day0 check-day1 check-day2 check-day3 check-all
+.PHONY: help setup initdb schema seed clean reset check-day0 check-day1 check-day2 check-day3 check-day4 check-all
 
 # Variables
 DB_NAME=chipi_case
@@ -30,9 +30,11 @@ help:
 	@echo "  make clean    → Borrar la base de datos"
 	@echo ""
 	@echo "✅ VALIDACIÓN (Después de cada reto):"
+	@echo "  make check-day0  → Validar Warmup"
 	@echo "  make check-day1  → Validar Reto 1"
 	@echo "  make check-day2  → Validar Reto 2"
 	@echo "  make check-day3  → Validar Reto 3 (OPCIONAL)"
+	@echo "  make check-day4  → Validar Reto 4 (FINAL)"
 	@echo "  make check-all   → Validar todo"
 	@echo ""
 	@echo "Ejemplo:"
@@ -50,7 +52,9 @@ initdb:
 schema:
 	@echo "[2/3] Ejecutando esquema (00_schema.sql)..."
 	psql -h $(DB_HOST) -U $(DB_USER) -p $(DB_PORT) -d $(DB_NAME) -f db/00_schema.sql
-	@echo "✓ Tablas creadas."
+	@echo "[2.5/3] Cargando funciones (02_functions.sql)..."
+	psql -h $(DB_HOST) -U $(DB_USER) -p $(DB_PORT) -d $(DB_NAME) -f db/02_functions.sql
+	@echo "✓ Tablas y funciones creadas."
 
 seed:
 	@echo "[3/3] Insertando datos iniciales (01_seed.sql)..."
@@ -81,7 +85,11 @@ check-day3:
 	@echo "🔍 Validando Day 3 (OPCIONAL)..."
 	@psql -h $(DB_HOST) -U $(DB_USER) -p $(DB_PORT) -d $(DB_NAME) -f db/tests/day3_checks.sql
 
-check-all: check-day1 check-day2 check-day3
+check-day4:
+	@echo "🔍 Validando Day 4 (FINAL)..."
+	@psql -h $(DB_HOST) -U $(DB_USER) -p $(DB_PORT) -d $(DB_NAME) -f db/tests/day4_checks.sql
+
+check-all: check-day0 check-day1 check-day2 check-day3 check-day4
 	@echo ""
 	@echo "✅ ¡TODAS LAS VALIDACIONES COMPLETADAS! 🎉"
 

@@ -82,6 +82,34 @@ CREATE TABLE pistas (
 
 -- Índices para mejorar búsquedas
 CREATE INDEX idx_alumnos_equipo ON alumnos(equipo_id);
+-- ============================================================
+-- DAY 4: Tablas adicionales para la revelación final
+-- ============================================================
+
+-- Registros de acceso por puertas RFID
+CREATE TABLE door_logs (
+    id SERIAL PRIMARY KEY,
+    alumno_id INTEGER NOT NULL REFERENCES alumnos(id),
+    puerta TEXT NOT NULL,
+    timestamp TIMESTAMP NOT NULL
+);
+
+-- Eventos de conexión WiFi
+CREATE TABLE wifi_events (
+    id SERIAL PRIMARY KEY,
+    dispositivo_id INTEGER NOT NULL REFERENCES dispositivos(id),
+    access_point TEXT NOT NULL,
+    timestamp TIMESTAMP NOT NULL
+);
+
+-- Tabla para registrar el rescate de Chipi
+CREATE TABLE rescate (
+    id SERIAL PRIMARY KEY,
+    ubicacion_nueva TEXT NOT NULL,
+    timestamp_rescate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    rescatado_por TEXT
+);
+
 CREATE INDEX idx_commits_alumno ON commits(alumno_id);
 CREATE INDEX idx_cafe_alumno ON cafe_ordenes(alumno_id);
 CREATE INDEX idx_dispositivos_alumno ON dispositivos(alumno_id);

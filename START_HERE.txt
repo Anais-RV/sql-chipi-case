@@ -162,15 +162,17 @@ CHECKLIST ANTES DE EMPEZAR
 
 
 
-PRÓXIMOS PASOS
+ PRÓXIMOS PASOS
 
 
  Abre DBeaver y conecta a chipi_case
+ Lee challenges/day0_warmup.md (si nunca has visto SQL)
  Lee challenges/day1_select_basics.md
  Escribe tu primer query: SELECT nombre, email, turno FROM alumnos;
- Resuelve los 5 retos del Día 1
- Continúa con Día 2
- ¡Descubre al culpable! 
+ Resuelve los retos día a día (0 → 1 → 2 → 3 → 4)
+ Usa SOS_SQL.md si te atascas
+ Día 4 (final): Ejecuta python final/reveal.py para ver el rescate
+ ¡Descubre al culpable y rescata a Chipi! 
 
 
 
@@ -178,4 +180,3 @@ PRÓXIMOS PASOS
    Los datos están aquí. Las pistas escondidas.                    
    SQL es tu arma. ¡Que comience la investigación!                 
                        root_but_intern                            
-

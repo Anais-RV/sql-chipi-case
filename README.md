@@ -95,6 +95,24 @@ Abre **`challenges/day3_window_functions.md`** para retos avanzados.
 
 Valida con: `make check-day3`
 
+### 📅 Día 4: Revelación Final (Optativo pero épico 🎉)
+
+Abre **`challenges/day4_final.md`** para resolver el misterio completo.
+
+**Conceptos:** Integración total (JOINs + CTEs + Window Functions + PL/pgSQL)
+
+**Entregables:**
+- Vista `solve_d4_reveal` con 4 columnas: `sospechoso`, `motivo`, `ubicacion_final`, `codigo_rescate`
+- Llamada exitosa: `SELECT unlock_chipi(codigo_rescate) FROM solve_d4_reveal;`
+
+**Script Python (opcional):**
+```powershell
+pip install psycopg
+python final/reveal.py
+```
+
+Valida con: `make check-day4`
+
 ---
 
 ## 📊 Acceder a la Base de Datos
