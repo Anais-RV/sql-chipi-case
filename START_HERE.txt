@@ -1,5 +1,18 @@
 ﻿═
-          ¡BIENVENIDO A SQL-CHIPI-CASE!                         
+          ¡BIENVENIDO A SQL-CHIPI-CASE!             
+
+ COMIENZA TU INVESTIGACIÓN
+
+
+PASO 0 (OPCIONAL - Si nunca has visto SQL):
+   1. Abre challenges/day0_warmup.md
+   2. Crea las vistas solve_d0_r1, solve_d0_r2, solve_d0_r3, solve_d0_r4
+   3. Compruébalas visualmente en DBeaver
+   4. Cuando te sientas cómodo, pasa al Paso 1
+
+PASO 1 - Primer reto (SELECT Basics):
+
+1. LEE: challenges/day1_select_basics.md      
                                                                       
     Proyecto Educativo SQL - SuperKode Bootcamp                      
     Chipi  ha sido secuestrada. Usa SQL para resolver el caso.    

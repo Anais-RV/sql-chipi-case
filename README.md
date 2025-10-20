@@ -63,6 +63,14 @@ Esto creará la base de datos `chipi_case` con todas las tablas y datos.
 
 ## 🎮 Los Retos
 
+### Día 0: Calentamiento (OPCIONAL)
+
+**Si nunca has visto SQL, empieza aquí.**
+
+Abre **`challenges/day0_warmup.md`** y haz 4 retos ultra-básicos sin JOINs.
+
+---
+
 ### Día 1: SELECT Basics
 
 Abre **`challenges/day1_select_basics.md`** y resuelve 5 retos + 1 bonus.

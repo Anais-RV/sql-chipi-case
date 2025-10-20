@@ -3,7 +3,7 @@
 # Gestiona la base de datos PostgreSQL del proyecto
 # ============================================================
 
-.PHONY: help setup initdb schema seed clean reset check-day1 check-day2 check-day3 check-all
+.PHONY: help setup initdb schema seed clean reset check-day0 check-day1 check-day2 check-day3 check-all
 
 # Variables
 DB_NAME=chipi_case
@@ -64,6 +64,10 @@ clean:
 
 reset: clean setup
 	@echo "✓ Base de datos reiniciada y cargada."
+
+check-day0:
+	@echo "🔍 Validando Day 0 (Warmup)..."
+	@psql -h $(DB_HOST) -U $(DB_USER) -p $(DB_PORT) -d $(DB_NAME) -f db/tests/day0_checks.sql
 
 check-day1:
 	@echo "🔍 Validando Day 1..."
