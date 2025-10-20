@@ -125,17 +125,16 @@ INSERT INTO wifi_events (dispositivo_id, access_point, timestamp) VALUES
 (1, 'AP-Aula-Main', '2025-10-19 02:20:00'),
 (11, 'AP-Baño-2F', '2025-10-19 02:31:00');
 
--- Pista nivel 3 (solo accesible para el culpable, motivo del secuestro)
-INSERT INTO pistas (nivel, codigo, descripcion, query_ayuda) VALUES
+-- Pista dia 3 (solo accesible para el culpable, motivo del secuestro)
+INSERT INTO pistas (dia, codigo, descripcion, desbloqueo_sql) VALUES
 (3, 'P-MOTIVO-01',
  'Wizi confesó: "Chipi mordió mi cable Ethernet favorito. Ahora pagará con WiFi lento."',
- 'SELECT descripcion FROM pistas WHERE nivel = 3 AND codigo = ''P-MOTIVO-01'';'),
+ 'SELECT descripcion FROM pistas WHERE dia = 3 AND codigo = ''P-MOTIVO-01'';'),
 (3, 'P-CODIGO-RESCATE',
  'Código de rescate final: CH0213',
- 'SELECT descripcion FROM pistas WHERE nivel = 3 AND codigo = ''P-CODIGO-RESCATE'';');
+ 'SELECT descripcion FROM pistas WHERE dia = 3 AND codigo = ''P-CODIGO-RESCATE'';');
 
 -- Ubicación final de Chipi (Pasillo 3F es donde Wizi lo dejó)
--- Nota: La tabla ubicaciones ya existe, solo verificamos que haya una fila con descripcion relevante
-INSERT INTO ubicaciones (nombre, descripcion) VALUES
-('Pasillo 3er Piso', 'Pasillo cerca del access point AP-Pasillo-3F')
+INSERT INTO ubicaciones (nombre, lugar, estado) VALUES
+('Pasillo 3er Piso', 'Edificio SuperKode - Piso 3', 'peligro')
 ON CONFLICT DO NOTHING;

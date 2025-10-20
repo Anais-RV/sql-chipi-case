@@ -37,21 +37,26 @@ Practicar **SQL** resolviendo un caso misterioso:
 Antes de empezar, asegúrate de tener:
 
 - **PostgreSQL 16+** instalado
-- **psql** disponible en tu PATH
-- **Make** instalado
+- **psql** disponible en tu PATH (o usa `make setup PSQL="ruta\a\psql.exe"`)
+- **Make** instalado (viene con Git for Windows)
+- **DBeaver** o cualquier cliente SQL
+
+> 🚀 **¿Primera vez?** Lee [`QUICKSTART.md`](QUICKSTART.md) para configurar todo en 5 minutos.
 - **DBeaver** (opcional pero recomendado)
 
 ---
 
 ## 🚀 Instalación y Setup
 
-### Paso 1: Configura la contraseña de PostgreSQL
+> **📖 Guía rápida:** Lee [`QUICKSTART.md`](QUICKSTART.md) para instrucciones detalladas de instalación.
+
+### Configurar PostgreSQL
 
 ```powershell
 $env:PGPASSWORD="postgres"
 ```
 
-### Paso 2: Ejecuta el setup
+### Inicializar base de datos
 
 ```powershell
 make setup
