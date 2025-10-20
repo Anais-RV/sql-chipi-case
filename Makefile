@@ -131,22 +131,22 @@ setup:
 	@$(MAKE) initdb
 	@$(MAKE) schema
 	@$(MAKE) seed
-	@powershell -Command "Write-Host @'
-╔══════════════════════════════════════════════════════════════════╗
-║                                                                  ║
-║      ✅ PROYECTO SQL-CHIPI-CASE - COMPLETADO EXITOSAMENTE      ║
-║                                                                  ║
-╚══════════════════════════════════════════════════════════════════╝
-📊 RESUMEN:
-   ✅ Estado: LISTO PARA USAR
-   💾 Base: chipi_case (PostgreSQL)
-   🧱 Tablas: 8
-   🎯 Retos: day1_select_basics + day2_joins_analysis
-   🕵️ Misterio: ¡Descubre quién secuestró a Chipi!
-═══════════════════════════════════════════════════════════════════
-🚀 COMIENZA EN:
-   1. Abre DBeaver
-   2. Conecta a chipi_case
-   3. Abre challenges/day1_select_basics.md
-═══════════════════════════════════════════════════════════════════
-'@ -ForegroundColor Cyan"
+	@echo ""
+	@echo "╔══════════════════════════════════════════════════════════════════╗"
+	@echo "║                                                                  ║"
+	@echo "║      ✅ PROYECTO SQL-CHIPI-CASE - COMPLETADO EXITOSAMENTE      ║"
+	@echo "║                                                                  ║"
+	@echo "╚══════════════════════════════════════════════════════════════════╝"
+	@echo "📊 RESUMEN:"
+	@echo "   ✅ Estado: LISTO PARA USAR"
+	@echo "   💾 Base: chipi_case (PostgreSQL)"
+	@echo "   🧱 Tablas: 11 (Day 0-4 completos)"
+	@echo "   🎯 Retos: day0 warmup → day4 final"
+	@echo "   🕵️ Misterio: ¡Descubre quién secuestró a Chipi!"
+	@echo "═══════════════════════════════════════════════════════════════════"
+	@echo "🚀 COMIENZA EN:"
+	@echo "   1. Abre DBeaver"
+	@echo "   2. Conecta a chipi_case"
+	@echo "   3. Abre challenges/day0_warmup.md (o day1 si ya sabes SQL)"
+	@echo "═══════════════════════════════════════════════════════════════════"
+	@echo ""
