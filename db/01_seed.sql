@@ -20,8 +20,8 @@ INSERT INTO alumnos (nombre, email, equipo_id, turno) VALUES
 ('Cale', 'cale@superkode.dev', 2, 'tarde'),
 ('La Rusa', 'larusa@superkode.dev', 3, 'mañana'),
 ('Ramazan', 'ramazan@superkode.dev', 3, 'tarde'),
-('Wizi', 'wizi@superkode.dev', 1, 'noche'),
-('Sara', 'sara@superkode.dev', 2, 'noche'),
+('Wizi', 'wizi@superkode.dev', 1, 'tarde'),
+('Sara', 'sara@superkode.dev', 2, 'mañana'),
 ('Rubén', 'ruben@superkode.dev', 3, 'mañana'),
 ('David', 'david@superkode.dev', 1, 'tarde');
 

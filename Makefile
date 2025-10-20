@@ -3,13 +3,20 @@
 # Gestiona la base de datos PostgreSQL del proyecto
 # ============================================================
 
-.PHONY: help setup initdb schema seed clean reset check-day0 check-day1 check-day2 check-day3 check-day4 check-all
+.PHONY: help setup initdb schema seed clean reset check-day0 check-day1 check-day2 check-day3 check-day4 check-all check-psql solutions-apply solutions-drop check-coherence check-all-with-solutions
 
 # Variables
 DB_NAME=chipi_case
 DB_USER=postgres
 DB_HOST=localhost
 DB_PORT=5432
+
+# Auto-detectar PSQL (puedes sobreescribir con: make setup PSQL="C:\ruta\psql.exe")
+PSQL ?= $(shell powershell -Command "$$psql = Get-Command psql -ErrorAction SilentlyContinue; if ($$psql) { $$psql.Source } else { (Get-ChildItem 'C:\Program Files\PostgreSQL' -Recurse -Filter psql.exe -ErrorAction SilentlyContinue | Select-Object -First 1).FullName }")
+
+# Verificar que PSQL exista
+check-psql:
+	@powershell -Command "if ('$(PSQL)' -eq '' -or -not (Test-Path '$(PSQL)' -ErrorAction SilentlyContinue)) { Write-Host '❌ ERROR: No se encontró psql.exe' -ForegroundColor Red; Write-Host ''; Write-Host 'Soluciones:' -ForegroundColor Yellow; Write-Host '  1. Agrega PostgreSQL al PATH del sistema' -ForegroundColor Cyan; Write-Host '  2. O ejecuta: make setup PSQL=\"C:\ruta\a\psql.exe\"' -ForegroundColor Cyan; Write-Host ''; exit 1 } else { Write-Host '✓ psql encontrado en: $(PSQL)' -ForegroundColor Green }"
 
 # Colores (solo visibles en terminales con soporte ANSI)
 GREEN=\033[0;32m
@@ -37,57 +44,61 @@ help:
 	@echo "  make check-day4  → Validar Reto 4 (FINAL)"
 	@echo "  make check-all   → Validar todo"
 	@echo ""
+	@echo "⚙️  CONFIGURACIÓN:"
+	@echo "  \$$env:PGPASSWORD=\"tu_password\""
+	@echo "  make setup PSQL=\"C:\ruta\a\psql.exe\"  (si no está en PATH)"
+	@echo ""
 	@echo "Ejemplo:"
 	@echo "  \$$env:PGPASSWORD=\"postgres\""
 	@echo "  make setup"
 	@echo "  make check-day1"
 	@echo ""
 
-initdb:
+initdb: check-psql
 	@echo "[1/3] Creando base de datos $(DB_NAME)..."
-	psql -h $(DB_HOST) -U $(DB_USER) -p $(DB_PORT) -c "DROP DATABASE IF EXISTS $(DB_NAME);" 2>/dev/null || echo "DB no existía."
-	psql -h $(DB_HOST) -U $(DB_USER) -p $(DB_PORT) -c "CREATE DATABASE $(DB_NAME);" 
+	"$(PSQL)" -h $(DB_HOST) -U $(DB_USER) -p $(DB_PORT) -c "DROP DATABASE IF EXISTS $(DB_NAME);" 2>nul || echo "DB no existía."
+	"$(PSQL)" -h $(DB_HOST) -U $(DB_USER) -p $(DB_PORT) -c "CREATE DATABASE $(DB_NAME);" 
 	@echo "✓ Base de datos $(DB_NAME) creada."
 
-schema:
+schema: check-psql
 	@echo "[2/3] Ejecutando esquema (00_schema.sql)..."
-	psql -h $(DB_HOST) -U $(DB_USER) -p $(DB_PORT) -d $(DB_NAME) -f db/00_schema.sql
+	"$(PSQL)" -h $(DB_HOST) -U $(DB_USER) -p $(DB_PORT) -d $(DB_NAME) -f db/00_schema.sql
 	@echo "[2.5/3] Cargando funciones (02_functions.sql)..."
-	psql -h $(DB_HOST) -U $(DB_USER) -p $(DB_PORT) -d $(DB_NAME) -f db/02_functions.sql
+	"$(PSQL)" -h $(DB_HOST) -U $(DB_USER) -p $(DB_PORT) -d $(DB_NAME) -f db/02_functions.sql
 	@echo "✓ Tablas y funciones creadas."
 
-seed:
+seed: check-psql
 	@echo "[3/3] Insertando datos iniciales (01_seed.sql)..."
-	psql -h $(DB_HOST) -U $(DB_USER) -p $(DB_PORT) -d $(DB_NAME) -f db/01_seed.sql
+	"$(PSQL)" -h $(DB_HOST) -U $(DB_USER) -p $(DB_PORT) -d $(DB_NAME) -f db/01_seed.sql
 	@echo "✓ Datos cargados."
 
-clean:
+clean: check-psql
 	@echo "🧹 Borrando base de datos $(DB_NAME)..."
-	psql -h $(DB_HOST) -U $(DB_USER) -p $(DB_PORT) -c "DROP DATABASE IF EXISTS $(DB_NAME);"
+	"$(PSQL)" -h $(DB_HOST) -U $(DB_USER) -p $(DB_PORT) -c "DROP DATABASE IF EXISTS $(DB_NAME);"
 	@echo "✓ Base de datos eliminada."
 
 reset: clean setup
 	@echo "✓ Base de datos reiniciada y cargada."
 
-check-day0:
+check-day0: check-psql
 	@echo "🔍 Validando Day 0 (Warmup)..."
-	@psql -h $(DB_HOST) -U $(DB_USER) -p $(DB_PORT) -d $(DB_NAME) -f db/tests/day0_checks.sql
+	@"$(PSQL)" -h $(DB_HOST) -U $(DB_USER) -p $(DB_PORT) -d $(DB_NAME) -f db/tests/day0_checks.sql
 
-check-day1:
+check-day1: check-psql
 	@echo "🔍 Validando Day 1..."
-	@psql -h $(DB_HOST) -U $(DB_USER) -p $(DB_PORT) -d $(DB_NAME) -f db/tests/day1_checks.sql
+	@"$(PSQL)" -h $(DB_HOST) -U $(DB_USER) -p $(DB_PORT) -d $(DB_NAME) -f db/tests/day1_checks.sql
 
-check-day2:
+check-day2: check-psql
 	@echo "🔍 Validando Day 2..."
-	@psql -h $(DB_HOST) -U $(DB_USER) -p $(DB_PORT) -d $(DB_NAME) -f db/tests/day2_checks.sql
+	@"$(PSQL)" -h $(DB_HOST) -U $(DB_USER) -p $(DB_PORT) -d $(DB_NAME) -f db/tests/day2_checks.sql
 
-check-day3:
+check-day3: check-psql
 	@echo "🔍 Validando Day 3 (OPCIONAL)..."
-	@psql -h $(DB_HOST) -U $(DB_USER) -p $(DB_PORT) -d $(DB_NAME) -f db/tests/day3_checks.sql
+	@"$(PSQL)" -h $(DB_HOST) -U $(DB_USER) -p $(DB_PORT) -d $(DB_NAME) -f db/tests/day3_checks.sql
 
-check-day4:
+check-day4: check-psql
 	@echo "🔍 Validando Day 4 (FINAL)..."
-	@psql -h $(DB_HOST) -U $(DB_USER) -p $(DB_PORT) -d $(DB_NAME) -f db/tests/day4_checks.sql
+	@"$(PSQL)" -h $(DB_HOST) -U $(DB_USER) -p $(DB_PORT) -d $(DB_NAME) -f db/tests/day4_checks.sql
 
 check-all: check-day0 check-day1 check-day2 check-day3 check-day4
 	@echo ""
@@ -97,17 +108,17 @@ check-all: check-day0 check-day1 check-day2 check-day3 check-day4
 # TARGETS DE INSTRUCTOR (no documentados en help público)
 # ============================================================
 
-solutions-apply:
+solutions-apply: check-psql
 	@echo "🧩 Aplicando soluciones (privadas, local)..."
-	@psql -h $(DB_HOST) -U $(DB_USER) -p $(DB_PORT) -d $(DB_NAME) -f instructor/solutions/apply_all.sql
+	@"$(PSQL)" -h $(DB_HOST) -U $(DB_USER) -p $(DB_PORT) -d $(DB_NAME) -f instructor/solutions/apply_all.sql
 
-solutions-drop:
+solutions-drop: check-psql
 	@echo "🧹 Eliminando vistas de soluciones..."
-	@psql -h $(DB_HOST) -U $(DB_USER) -p $(DB_PORT) -d $(DB_NAME) -f instructor/solutions/drop_all.sql
+	@"$(PSQL)" -h $(DB_HOST) -U $(DB_USER) -p $(DB_PORT) -d $(DB_NAME) -f instructor/solutions/drop_all.sql
 
-check-coherence:
+check-coherence: check-psql
 	@echo "🔍 Coherence check (estructural, amable)..."
-	@psql -h $(DB_HOST) -U $(DB_USER) -p $(DB_PORT) -d $(DB_NAME) -f instructor/tests/coherence.sql
+	@"$(PSQL)" -h $(DB_HOST) -U $(DB_USER) -p $(DB_PORT) -d $(DB_NAME) -f instructor/tests/coherence.sql
 
 check-all-with-solutions:
 	@echo "🧪 Validación completa CON soluciones aplicadas..."
