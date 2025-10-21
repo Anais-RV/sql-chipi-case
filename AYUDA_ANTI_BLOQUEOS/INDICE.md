@@ -4,6 +4,14 @@
 
 ---
 
+## 💜 Nota de la Autora
+
+Estas guías fueron creadas con mucho cariño por **[Anaïs Rodríguez Villanueva](https://github.com/Anais-RV)** en su tiempo libre, pensando en ti, que estás aprendiendo SQL.
+
+Si te ayudan, considera **darle una ⭐ al repo** o **mencionar este recurso** si lo compartes. ¡Gracias! 😊
+
+---
+
 ## 📋 ¿Cómo usar esta carpeta?
 
 1. **Intenta resolver el reto por tu cuenta primero** (al menos 10-15 minutos)

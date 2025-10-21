@@ -4,6 +4,19 @@
 
 ---
 
+## 📜 Sobre este Material Educativo
+
+Este juego SQL fue creado por **[Anaïs Rodríguez Villanueva](https://github.com/Anais-RV)** en su tiempo libre personal, con el objetivo de hacer el aprendizaje de SQL más divertido y accesible.
+
+💜 **Es gratuito y de código abierto**, pero si lo usas o te ayuda, considera:
+- ⭐ Darle una estrella en GitHub
+- 📣 Mencionar la autoría si lo compartes
+- 💬 Compartir tu experiencia
+
+**¡Gracias por respetar el trabajo detrás de este recurso!**
+
+---
+
 ## 🚀 Inicio Rápido
 
 ¿Primera vez? Empieza aquí:

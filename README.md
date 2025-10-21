@@ -10,6 +10,23 @@ Chipi, la mascota de **SuperKode**, ha sido secuestrada el 19 de octubre a las *
 
 ---
 
+## 📜 Sobre este Proyecto
+
+**Creado por:** [Anaïs Rodríguez Villanueva](https://github.com/Anais-RV)  
+**Propósito:** Recurso educativo gratuito para aprender SQL de forma práctica y divertida  
+**Tiempo de desarrollo:** Creado en mi tiempo libre personal con dedicación y cariño 💜
+
+> ⚠️ **Nota importante:** Este material es de uso libre para fines educativos. Si lo utilizas en tu clase, bootcamp o curso, **agradecería enormemente que menciones la autoría**. Es una forma de reconocer el trabajo que hay detrás y me motiva a seguir creando recursos como este.
+>
+> **¿Lo estás usando?** ¡Me encantaría saberlo! Puedes:
+> - ⭐ Darle una estrella al repo
+> - 🐦 Mencionarme en redes sociales
+> - 💬 Contarme cómo te fue usándolo
+>
+> **Licencia:** MIT License - Libre para usar, modificar y compartir (con atribución)
+
+---
+
 ## 📖 Contexto
 
 El 19 de octubre de 2025, a las **02:13**, Chipi desapareció de la oficina de SuperKode.
@@ -216,6 +233,18 @@ make help          # Ver ayuda
 - 📊 Consulta la estructura de las tablas antes de escribir queries.
 - 🧙 Day 3 es opcional: enfócate primero en Day 1 y Day 2.
 - 🆘 **Si te atascas, usa las [Guías Anti-Bloqueos](AYUDA_ANTI_BLOQUEOS/INDICE.md)** - te ayudan a pensar sin darte la solución.
+
+---
+
+## 📜 Créditos y Licencia
+
+**Creado por:** [Anaïs Rodríguez Villanueva](https://github.com/Anais-RV) 💜
+
+Este proyecto es **gratuito y de código abierto** (MIT License). Puedes usarlo, modificarlo y compartirlo libremente.
+
+**Si lo usas en tu clase o bootcamp, por favor menciona la autoría.** Es la forma de reconocer el trabajo y motivar a crear más recursos educativos gratuitos.
+
+Ver detalles completos: **[CREDITS.md](CREDITS.md)**
 
 ---
 
