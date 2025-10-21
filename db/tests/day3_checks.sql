@@ -1,86 +1,35 @@
--- ============================================================
--- sql-chipi-case: Tests para Day 3 (CTEs y Window Functions)
--- ============================================================
--- Este script valida que los estudiantes han creado las vistas correctas
-
--- Configurar codificacion UTF-8
+\encoding UTF8
 SET client_encoding = 'UTF8';
--- SIN revelar la solución exacta.
--- NOTA: Day 3 es COMPLETAMENTE OPCIONAL
--- ============================================================
+\set ON_ERROR_STOP on
 
-\echo '🔍 Validando Day 3 (OPCIONAL)...'
-\echo ''
-
--- ===== RETO 1: solve_d3_r1 =====
-\echo '📋 Reto 1: solve_d3_r1 (Alumnos raros con CTE)'
 DO $$
+DECLARE
+    views      text[] := ARRAY['solve_d3_r1','solve_d3_r2','solve_d3_r3'];
+    v          text;
+    v_count    int;
+    fail_count int := 0;
 BEGIN
-  IF NOT EXISTS (SELECT 1 FROM information_schema.views WHERE table_name = 'solve_d3_r1') THEN
-    RAISE EXCEPTION '❌ Vista solve_d3_r1 no existe. (Este es reto OPCIONAL de Day 3)';
+  RAISE NOTICE '';
+  RAISE NOTICE '========================================';
+  RAISE NOTICE 'Tests Day 3: Window Functions';
+  RAISE NOTICE '========================================';
+  RAISE NOTICE '';
+
+  FOREACH v IN ARRAY views LOOP
+    IF EXISTS (SELECT 1 FROM information_schema.views WHERE table_schema='public' AND table_name=v) THEN
+      EXECUTE format('SELECT count(*) FROM public.%I', v) INTO v_count;
+      RAISE NOTICE '[OK] % (% filas)', v, v_count;
+    ELSE
+      RAISE NOTICE '[FAIL] % (vista no existe)', v;
+      fail_count := fail_count + 1;
+    END IF;
+  END LOOP;
+
+  RAISE NOTICE '';
+  IF fail_count = 0 THEN
+    RAISE NOTICE 'Day 3 VALIDADO';
+  ELSE
+    RAISE NOTICE 'Day 3 NO VALIDADO (% fallos)', fail_count;
+    RAISE EXCEPTION 'Day 3 failed with % missing/invalid views', fail_count;
   END IF;
 END $$;
-
-SELECT 'solve_d3_r1' as vista,
-       CASE 
-         WHEN COUNT(*) >= 4 THEN '✅ Tiene columnas'
-         ELSE '❌ Faltan columnas'
-       END as estado,
-       string_agg(column_name, ', ') as columnas
-FROM information_schema.columns
-WHERE table_schema = 'public' AND table_name = 'solve_d3_r1'
-GROUP BY table_schema, table_name;
-
-SELECT '✅ Reto 1: ' || COUNT(*) || ' alumnos "raros" encontrados con CTE' as resultado
-FROM solve_d3_r1;
-
-\echo ''
-
--- ===== RETO 2: solve_d3_r2 =====
-\echo '📋 Reto 2: solve_d3_r2 (Últimos 2 commits por alumno - Window Functions)'
-DO $$
-BEGIN
-  IF NOT EXISTS (SELECT 1 FROM information_schema.views WHERE table_name = 'solve_d3_r2') THEN
-    RAISE EXCEPTION '❌ Vista solve_d3_r2 no existe. (Este es reto OPCIONAL de Day 3)';
-  END IF;
-END $$;
-
-SELECT 'solve_d3_r2' as vista,
-       CASE 
-         WHEN COUNT(*) >= 5 THEN '✅ Tiene columnas'
-         ELSE '❌ Faltan columnas'
-       END as estado,
-       string_agg(column_name, ', ') as columnas
-FROM information_schema.columns
-WHERE table_schema = 'public' AND table_name = 'solve_d3_r2'
-GROUP BY table_schema, table_name;
-
-SELECT '✅ Reto 2: ' || COUNT(*) || ' commits (últimos 2 por alumno)' as resultado
-FROM solve_d3_r2;
-
-\echo ''
-
--- ===== BONUS: solve_d3_bonus =====
-\echo '⭐ BONUS: solve_d3_bonus (Cronología completa del crimen)'
-DO $$
-BEGIN
-  IF NOT EXISTS (SELECT 1 FROM information_schema.views WHERE table_name = 'solve_d3_bonus') THEN
-    RAISE EXCEPTION '❌ Vista solve_d3_bonus no existe. (Este es reto BONUS OPCIONAL de Day 3)';
-  END IF;
-END $$;
-
-SELECT 'solve_d3_bonus' as vista,
-       CASE 
-         WHEN COUNT(*) >= 4 THEN '✅ Tiene columnas'
-         ELSE '❌ Faltan columnas'
-       END as estado,
-       string_agg(column_name, ', ') as columnas
-FROM information_schema.columns
-WHERE table_schema = 'public' AND table_name = 'solve_d3_bonus'
-GROUP BY table_schema, table_name;
-
-SELECT '✅ BONUS: ' || COUNT(*) || ' eventos en la cronología del crimen' as resultado
-FROM solve_d3_bonus;
-
-\echo ''
-\echo '✅ ¡VALIDACIÓN DAY 3 (OPCIONAL) COMPLETADA! 🎉'

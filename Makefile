@@ -82,23 +82,23 @@ reset: clean setup
 
 check-day0: check-psql
 	@echo "Validando Day 0 (Warmup)..."
-	@"$(PSQL)" -h $(DB_HOST) -U $(DB_USER) -p $(DB_PORT) -d $(DB_NAME) -f db/tests/day0_checks.sql
+	@"$(PSQL)" -h $(DB_HOST) -U $(DB_USER) -p $(DB_PORT) -d $(DB_NAME) --set=client_encoding=UTF8 -f db/tests/day0_checks.sql
 
 check-day1: check-psql
 	@echo "Validando Day 1..."
-	@"$(PSQL)" -h $(DB_HOST) -U $(DB_USER) -p $(DB_PORT) -d $(DB_NAME) -f db/tests/day1_checks.sql
+	@"$(PSQL)" -h $(DB_HOST) -U $(DB_USER) -p $(DB_PORT) -d $(DB_NAME) --set=client_encoding=UTF8 -f db/tests/day1_checks.sql
 
 check-day2: check-psql
 	@echo "Validando Day 2..."
-	@"$(PSQL)" -h $(DB_HOST) -U $(DB_USER) -p $(DB_PORT) -d $(DB_NAME) -f db/tests/day2_checks.sql
+	@"$(PSQL)" -h $(DB_HOST) -U $(DB_USER) -p $(DB_PORT) -d $(DB_NAME) --set=client_encoding=UTF8 -f db/tests/day2_checks.sql
 
 check-day3: check-psql
 	@echo "Validando Day 3 (OPCIONAL)..."
-	@"$(PSQL)" -h $(DB_HOST) -U $(DB_USER) -p $(DB_PORT) -d $(DB_NAME) -f db/tests/day3_checks.sql
+	@"$(PSQL)" -h $(DB_HOST) -U $(DB_USER) -p $(DB_PORT) -d $(DB_NAME) --set=client_encoding=UTF8 -f db/tests/day3_checks.sql
 
 check-day4: check-psql
 	@echo "Validando Day 4 (FINAL)..."
-	@"$(PSQL)" -h $(DB_HOST) -U $(DB_USER) -p $(DB_PORT) -d $(DB_NAME) -f db/tests/day4_checks.sql
+	@"$(PSQL)" -h $(DB_HOST) -U $(DB_USER) -p $(DB_PORT) -d $(DB_NAME) --set=client_encoding=UTF8 -f db/tests/day4_checks.sql
 
 check-all: check-day0 check-day1 check-day2 check-day3 check-day4
 	@echo ""

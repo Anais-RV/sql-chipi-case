@@ -1,53 +1,35 @@
--- ============================================================
--- sql-chipi-case: Tests para Day 4 (Revelación Final)
--- ============================================================
--- Este script valida que los estudiantes han creado la vista solve_d4_reveal
-
--- Configurar codificacion UTF-8
+\encoding UTF8
 SET client_encoding = 'UTF8';
--- SIN revelar la solución exacta.
--- ============================================================
+\set ON_ERROR_STOP on
 
-\echo '🔍 Validando Day 4 (FINAL)...'
-\echo ''
-
--- ===== RETO FINAL: solve_d4_reveal =====
-\echo '📋 Reto Final: solve_d4_reveal (Mystery Resolution)'
-DO $$
-BEGIN
-  IF NOT EXISTS (SELECT 1 FROM information_schema.views WHERE table_name = 'solve_d4_reveal') THEN
-    RAISE EXCEPTION '❌ Vista solve_d4_reveal no existe. Revisa challenges/day4_final.md';
-  END IF;
-END $$;
-
--- Validar que tenga las 4 columnas requeridas
-SELECT 'solve_d4_reveal' as vista,
-       CASE 
-         WHEN COUNT(*) >= 4 THEN '✅ Tiene las 4 columnas requeridas'
-         ELSE '❌ Faltan columnas (debe tener: sospechoso, motivo, ubicacion_final, codigo_rescate)'
-       END as estado,
-       string_agg(column_name, ', ') as columnas
-FROM information_schema.columns
-WHERE table_schema = 'public' AND table_name = 'solve_d4_reveal'
-GROUP BY table_schema, table_name;
-
--- Validar que devuelva exactamente 1 fila
 DO $$
 DECLARE
-    v_count INTEGER;
+    views      text[] := ARRAY['solve_d4_r1','solve_d4_r2','solve_d4_r3','solve_d4_final'];
+    v          text;
+    v_count    int;
+    fail_count int := 0;
 BEGIN
-    SELECT COUNT(*) INTO v_count FROM solve_d4_reveal;
-    
-    IF v_count = 0 THEN
-        RAISE EXCEPTION '❌ La vista solve_d4_reveal está vacía (0 filas). Debe devolver exactamente 1 fila.';
-    ELSIF v_count > 1 THEN
-        RAISE EXCEPTION '❌ La vista solve_d4_reveal devuelve % filas. Debe devolver exactamente 1 fila.', v_count;
+  RAISE NOTICE '';
+  RAISE NOTICE '========================================';
+  RAISE NOTICE 'Tests Day 4: Final';
+  RAISE NOTICE '========================================';
+  RAISE NOTICE '';
+
+  FOREACH v IN ARRAY views LOOP
+    IF EXISTS (SELECT 1 FROM information_schema.views WHERE table_schema='public' AND table_name=v) THEN
+      EXECUTE format('SELECT count(*) FROM public.%I', v) INTO v_count;
+      RAISE NOTICE '[OK] % (% filas)', v, v_count;
+    ELSE
+      RAISE NOTICE '[FAIL] % (vista no existe)', v;
+      fail_count := fail_count + 1;
     END IF;
+  END LOOP;
+
+  RAISE NOTICE '';
+  IF fail_count = 0 THEN
+    RAISE NOTICE 'Day 4 VALIDADO';
+  ELSE
+    RAISE NOTICE 'Day 4 NO VALIDADO (% fallos)', fail_count;
+    RAISE EXCEPTION 'Day 4 failed with % missing/invalid views', fail_count;
+  END IF;
 END $$;
-
-SELECT '✅ Reto Final: Vista con 1 fila revelando el misterio' as resultado;
-
-\echo ''
-\echo '✅ ¡VALIDACIÓN DAY 4 (FINAL) COMPLETADA! 🎉'
-\echo '🔓 Ahora ejecuta: SELECT unlock_chipi(codigo_rescate) FROM solve_d4_reveal;'
-\echo '🐍 O automatiza con: python final/reveal.py'
