@@ -2,6 +2,8 @@
 
 **Objetivo:** Resolver el misterio del secuestro de Chipi combinando todas las pistas.
 
+> 🆘 **¿Atascado?** Consulta la **[Guía Anti-Bloqueos Day 4](../AYUDA_ANTI_BLOQUEOS/day4_guia.md)** con pistas paso a paso.
+
 ---
 
 ## 📖 Contexto

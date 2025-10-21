@@ -1,4 +1,10 @@
-﻿#  Día 1: SELECT Basics
+﻿# 🔎 Día 1: SELECT Básico — Primeros Indicios
+
+Chipi desapareció la noche del **19 de octubre de 2025**. Solo dejó una nota misteriosa con un mensaje en código. Tu misión: explorar la base de datos `chipi_case` y recopilar los primeros datos sobre el caso.
+
+> 🆘 **¿Atascado?** Consulta la **[Guía Anti-Bloqueos Day 1](../AYUDA_ANTI_BLOQUEOS/day1_guia.md)** con pistas paso a paso.
+
+---: SELECT Basics
 
 Chipi desapareció a las 02:13 del 19 de octubre. Los formadores sospechan. Tú investigas con **SQL**.
 

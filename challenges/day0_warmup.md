@@ -4,6 +4,8 @@ Bienvenido a SQL. Si nunca lo has usado, empieza aquí. Son 4 retos cortitos sin
 
 **Objetivo:** Coger confianza con SELECT, WHERE y GROUP BY. Sin JOINs todavía.
 
+> 🆘 **¿Atascado?** Consulta la **[Guía Anti-Bloqueos Day 0](../AYUDA_ANTI_BLOQUEOS/day0_guia.md)** con pistas paso a paso.
+
 ---
 
 ## 🎯 Reto 1: Equipos visibles

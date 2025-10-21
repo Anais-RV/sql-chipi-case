@@ -180,7 +180,15 @@ Ver esquema completo: **[docs/04_schema-reference.md](docs/04_schema-reference.m
 
 ## 🧭 Recursos y Ayuda
 
-### Documentación
+### 🆘 ¿Atascado en un Reto?
+- 📋 **[AYUDA_ANTI_BLOQUEOS/INDICE.md](AYUDA_ANTI_BLOQUEOS/INDICE.md)** - Guías paso a paso sin dar soluciones
+- 🔰 **[Day 0: Warmup](AYUDA_ANTI_BLOQUEOS/day0_guia.md)** - SELECT, WHERE, GROUP BY básico
+- 📘 **[Day 1: SELECT Basics](AYUDA_ANTI_BLOQUEOS/day1_guia.md)** - JOINs, filtros, ORDER BY
+- 📗 **[Day 2: JOINs y Análisis](AYUDA_ANTI_BLOQUEOS/day2_guia.md)** - Agregaciones, STRING_AGG, UNION
+- 📙 **[Day 3: CTEs y Window Functions](AYUDA_ANTI_BLOQUEOS/day3_guia.md)** - WITH, ROW_NUMBER, PARTITION BY
+- 📕 **[Day 4: Revelación Final](AYUDA_ANTI_BLOQUEOS/day4_guia.md)** - CTEs complejos, CROSS JOIN
+
+### Documentación Completa
 - 🎯 **[docs/00_COMIENZA_AQUI.md](docs/00_COMIENZA_AQUI.md)** - Índice principal (¡empieza aquí!)
 - 📖 **[docs/02_como-crear-vistas.md](docs/02_como-crear-vistas.md)** - Tutorial paso a paso
 - 🔧 **[docs/03_comandos.md](docs/03_comandos.md)** - Referencia de comandos make
@@ -203,10 +211,11 @@ make help          # Ver ayuda
 
 ## 💡 Consejos
 
-- No hay prisa. Tómate el tiempo que necesites.
-- Lee la pista varias veces si el reto es difícil.
-- Consulta la estructura de las tablas antes de escribir queries.
-- Day 3 es opcional: enfócate primero en Day 1 y Day 2.
+- 🕒 No hay prisa. Tómate el tiempo que necesites.
+- 📖 Lee la pista varias veces si el reto es difícil.
+- 📊 Consulta la estructura de las tablas antes de escribir queries.
+- 🧙 Day 3 es opcional: enfócate primero en Day 1 y Day 2.
+- 🆘 **Si te atascas, usa las [Guías Anti-Bloqueos](AYUDA_ANTI_BLOQUEOS/INDICE.md)** - te ayudan a pensar sin darte la solución.
 
 ---
 

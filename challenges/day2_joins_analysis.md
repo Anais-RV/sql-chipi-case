@@ -1,4 +1,12 @@
-﻿#  Día 2: JOINs y Análisis
+﻿# 📊 Día 2: JOINs y Análisis
+
+Día 1 te dio pistas básicas. Ahora necesitas análisis más profundos con agregaciones y múltiples JOINs.
+
+Tu misión: **descubre patrones sospechosos en los datos**.
+
+> 🆘 **¿Atascado?** Consulta la **[Guía Anti-Bloqueos Day 2](../AYUDA_ANTI_BLOQUEOS/day2_guia.md)** con pistas paso a paso.
+
+---2: JOINs y Análisis
 
 Día 1 te dio pistas básicas. Ahora necesitas análisis más profundos con agregaciones y múltiples JOINs.
 

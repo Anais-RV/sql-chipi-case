@@ -24,7 +24,15 @@
 - **[Cómo Crear Vistas](02_como-crear-vistas.md)** - Ejemplos paso a paso
 - **[SQL Cheatsheet](05_sql-cheatsheet.md)** - SELECT, JOIN, GROUP BY, CTEs
 
-### Ayuda y Resolución de Problemas
+### 🆘 ¿Atascado en un Reto? (Ayuda Anti-Bloqueos)
+- **[📋 Índice de Ayudas](../AYUDA_ANTI_BLOQUEOS/INDICE.md)** - Guías paso a paso sin dar la solución
+- **[Day 0: Warmup](../AYUDA_ANTI_BLOQUEOS/day0_guia.md)** - SELECT, WHERE, GROUP BY
+- **[Day 1: SELECT Basics](../AYUDA_ANTI_BLOQUEOS/day1_guia.md)** - JOINs, filtros, ORDER BY
+- **[Day 2: JOINs y Análisis](../AYUDA_ANTI_BLOQUEOS/day2_guia.md)** - Agregaciones, STRING_AGG, UNION
+- **[Day 3: CTEs y Window Functions](../AYUDA_ANTI_BLOQUEOS/day3_guia.md)** - WITH, ROW_NUMBER, PARTITION BY
+- **[Day 4: Revelación Final](../AYUDA_ANTI_BLOQUEOS/day4_guia.md)** - CTEs complejos, CROSS JOIN
+
+### Resolución de Problemas Técnicos
 - **[Problemas Comunes](06_problemas-comunes.md)** - "psql not found", "password failed", etc.
 
 ---
@@ -48,11 +56,13 @@ make setup
 ### 3. Resolver Retos
 
 Abre los archivos en orden:
-- `challenges/day0_warmup.md` (opcional)
-- `challenges/day1_select_basics.md`
-- `challenges/day2_joins_analysis.md`
-- `challenges/day3_window_functions.md` (opcional)
-- `challenges/day4_final.md`
+- `challenges/day0_warmup.md` (opcional) → [🆘 Ayuda Day 0](../AYUDA_ANTI_BLOQUEOS/day0_guia.md)
+- `challenges/day1_select_basics.md` → [🆘 Ayuda Day 1](../AYUDA_ANTI_BLOQUEOS/day1_guia.md)
+- `challenges/day2_joins_analysis.md` → [🆘 Ayuda Day 2](../AYUDA_ANTI_BLOQUEOS/day2_guia.md)
+- `challenges/day3_window_functions.md` (opcional) → [🆘 Ayuda Day 3](../AYUDA_ANTI_BLOQUEOS/day3_guia.md)
+- `challenges/day4_final.md` → [🆘 Ayuda Day 4](../AYUDA_ANTI_BLOQUEOS/day4_guia.md)
+
+💡 **¿Atascado?** Las guías de ayuda te hacen preguntas paso a paso sin darte la solución directa.
 
 ### 4. Crear Vistas con tus Soluciones
 
@@ -96,6 +106,10 @@ En DBeaver. Lee: **[Cómo Crear Vistas](02_como-crear-vistas.md)**
 ```powershell
 make check-day1  # Después de resolver Day 1
 ```
+
+### "¿Estoy atascado en un reto, qué hago?"
+
+Lee las **[🆘 Guías Anti-Bloqueos](../AYUDA_ANTI_BLOQUEOS/INDICE.md)** - Te ayudan a pensar sin darte la solución.
 
 ### "¿Qué hago si `psql` no funciona?"
 

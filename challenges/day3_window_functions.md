@@ -1,4 +1,12 @@
-﻿#  Día 3: CTEs y Window Functions (OPCIONAL)
+﻿# 🧙‍♂️ Día 3: CTEs y Window Functions (OPCIONAL)
+
+¡Has llegado hasta aquí! Estos retos son opcionales y más desafiantes.
+
+Si ya completaste Day 1 y Day 2, aquí puedes explorar técnicas SQL avanzadas.
+
+> 🆘 **¿Atascado?** Consulta la **[Guía Anti-Bloqueos Day 3](../AYUDA_ANTI_BLOQUEOS/day3_guia.md)** con pistas paso a paso.
+
+---3: CTEs y Window Functions (OPCIONAL)
 
 ¡Has llegado hasta aquí! Estos retos son opcionales y más desafiantes.
 
