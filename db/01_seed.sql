@@ -44,48 +44,51 @@ INSERT INTO dispositivos (tipo, ip, alumno_id) VALUES
 ('laptop', '192.168.1.112', 12);  -- David
 
 -- Insertar commits (algunos contienen "chipi" como pista sospechosa)
-INSERT INTO commits (alumno_id, rama, mensaje, estado_ci) VALUES
-(1, 'feature/auth', 'Implementar JWT con chipi_secret', 'success'),
-(2, 'bugfix/chipi-redirect', 'Arreglar redirección de Chipi en dashboard', 'success'),
-(3, 'feature/dashboard', 'Dashboard principal del bootcamp', 'success'),
-(4, 'hotfix/chipi-bug', 'Bug crítico: Chipi se pierde en ruta /api/chipi', 'failed'),
-(5, 'feature/api', 'Endpoints API para gestión de mascotas', 'pending'),
-(6, 'refactor/chipi-service', 'Refactorizar servicio de localización de Chipi', 'success'),
-(7, 'docs/readme', 'Documentación del proyecto SuperKode', 'success'),
-(8, 'feature/monitoring', 'Sistema de monitoreo con alertas chipi', 'success'),
-(9, 'bugfix/database', 'Optimizar queries en ubicaciones', 'success'),
-(10, 'wip/chipi-location', 'WIP: Rastreo en tiempo real de Chipi', 'pending'),
-(11, 'feature/logs', 'Mejorar sistema de logs y trazabilidad', 'success'),
-(12, 'hotfix/chipi-emergency', 'EMERGENCIA: Chipi desaparecido!', 'pending');
+-- Fijamos la fecha en el día del caso para que los retos con ventanas horarias funcionen de forma determinista
+INSERT INTO commits (alumno_id, rama, mensaje, estado_ci, fecha) VALUES
+(1, 'feature/auth', 'Implementar JWT con chipi_secret', 'success', '2025-10-19 01:50:00'),
+(2, 'bugfix/chipi-redirect', 'Arreglar redirección de Chipi en dashboard', 'success', '2025-10-19 01:55:00'),
+(3, 'feature/dashboard', 'Dashboard principal del bootcamp', 'success', '2025-10-19 01:10:00'),
+(4, 'hotfix/chipi-bug', 'Bug crítico: Chipi se pierde en ruta /api/chipi', 'failed', '2025-10-19 02:00:00'),
+(5, 'feature/api', 'Endpoints API para gestión de mascotas', 'pending', '2025-10-19 01:40:00'),
+(6, 'refactor/chipi-service', 'Refactorizar servicio de localización de Chipi', 'success', '2025-10-19 02:05:00'),
+(7, 'docs/readme', 'Documentación del proyecto SuperKode', 'success', '2025-10-19 00:30:00'),
+(8, 'feature/monitoring', 'Sistema de monitoreo con alertas chipi', 'success', '2025-10-19 02:12:00'),
+(9, 'bugfix/database', 'Optimizar queries en ubicaciones', 'success', '2025-10-19 01:20:00'),
+(10, 'wip/chipi-location', 'WIP: Rastreo en tiempo real de Chipi', 'pending', '2025-10-19 02:20:00'),
+(11, 'feature/logs', 'Mejorar sistema de logs y trazabilidad', 'success', '2025-10-19 01:25:00'),
+(12, 'hotfix/chipi-emergency', 'EMERGENCIA: Chipi desaparecido!', 'pending', '2025-10-19 02:25:00');
 
 -- Insertar órdenes de café (pista clave: ¿quién estaba en la cafetera a las 02:13?)
-INSERT INTO cafe_ordenes (alumno_id, bebida, leche, hora) VALUES
-(1, 'flat white con avena', 'sí', '08:30'),          -- Miguel
-(2, 'americano doble', 'no', '09:15'),               -- SalchiPresi
-(3, 'mocca con chocolate extra', 'sí', '08:45'),    -- Marcus
-(4, 'latte con almendra', 'sí', '14:00'),           -- Daniel
-(5, 'chai latte', 'sí', '08:20'),                    -- Roxy
-(6, 'capuccino con canela', 'sí', '16:30'),         -- Cale
-(7, 'té negro', 'no', '07:00'),                      -- La Rusa
-(8, 'turkish coffee', 'no', '09:45'),               -- Ramazan
-(9, 'matcha latte', 'parcial', '02:13'),            -- Wizi - ¡HORA SOSPECHOSA!
-(10, 'espresso frío', 'no', '15:00'),               -- Sara
-(11, 'espresso frío', 'no', '08:00'),               -- Rubén
-(12, 'descafeinado', 'sí', '17:30');                -- David
+-- Fijamos la fecha al día del caso para queries que filtran por DATE(fecha)
+INSERT INTO cafe_ordenes (alumno_id, bebida, leche, hora, fecha) VALUES
+(1, 'flat white con avena', 'sí', '08:30', '2025-10-19 08:30:00'),          -- Miguel
+(2, 'americano doble', 'no', '09:15', '2025-10-19 09:15:00'),               -- SalchiPresi
+(3, 'mocca con chocolate extra', 'sí', '08:45', '2025-10-19 08:45:00'),    -- Marcus
+(4, 'latte con almendra', 'sí', '14:00', '2025-10-19 14:00:00'),           -- Daniel
+(5, 'chai latte', 'sí', '08:20', '2025-10-19 08:20:00'),                    -- Roxy
+(6, 'capuccino con canela', 'sí', '16:30', '2025-10-19 16:30:00'),         -- Cale
+(7, 'té negro', 'no', '07:00', '2025-10-19 07:00:00'),                      -- La Rusa
+(8, 'turkish coffee', 'no', '09:45', '2025-10-19 09:45:00'),               -- Ramazan
+(9, 'matcha latte', 'parcial', '02:13', '2025-10-19 02:13:00'),            -- Wizi - ¡HORA SOSPECHOSA!
+(10, 'espresso frío', 'no', '15:00', '2025-10-19 15:00:00'),               -- Sara
+(11, 'espresso frío', 'no', '08:00', '2025-10-19 08:00:00'),               -- Rubén
+(12, 'descafeinado', 'sí', '17:30', '2025-10-19 17:30:00');                -- David
 
 -- Insertar logs de Discord (fuente de pistas confusas y divertidas)
-INSERT INTO discord_logs (usuario, canal, mensaje) VALUES
-('root_but_intern', '#general', 'A las 02:13 Chipi desapareció. Los logs no cuadran.'),
-('Cris', '#general', 'Seguro que fue el router. Siempre es el router.'),
-('Andrea', '#dev', 'Yo culpo al pipeline. Algo raro pasó en el CI.'),
-('Yeraldín', '#dev', 'Revisad los commits recientes. Algo no encaja.'),
-('Mamá Pato', '#random', 'Yo no fui. Yo cuidaba a Chipi. *quack quack*'),
-('Miguel', '#confesiones', 'Visteis a Chipi en la cafetera esta madrugada?'),
-('Wizi', '#confesiones', 'Yo tomé matcha a las 02:13... solo.'),
-('SalchiPresi', '#general', 'Los logs de Discord tampoco tienen coherencia a esa hora.'),
-('Marcus', '#dev', 'He revisado el estado_ci de los commits. Algunos fallaron justo a las 02:00.'),
-('Rubén', '#soporte', 'El sistema de ubicaciones muestra "Desconocido" desde la 02:13.'),
-('root_but_intern', '#secreto', 'Si quereis recuperar a Chipi, consultad mejor que nunca. SQL es vuestra salvación.');
+-- Fijamos fecha para alinear el timeline del caso
+INSERT INTO discord_logs (usuario, canal, mensaje, fecha) VALUES
+('root_but_intern', '#general', 'A las 02:13 Chipi desapareció. Los logs no cuadran.', '2025-10-19 02:14:00'),
+('Cris', '#general', 'Seguro que fue el router. Siempre es el router.', '2025-10-19 01:30:00'),
+('Andrea', '#dev', 'Yo culpo al pipeline. Algo raro pasó en el CI.', '2025-10-19 01:40:00'),
+('Yeraldín', '#dev', 'Revisad los commits recientes. Algo no encaja.', '2025-10-19 01:50:00'),
+('Mamá Pato', '#random', 'Yo no fui. Yo cuidaba a Chipi. *quack quack*', '2025-10-19 01:00:00'),
+('Miguel', '#confesiones', 'Visteis a Chipi en la cafetera esta madrugada?', '2025-10-19 02:05:00'),
+('Wizi', '#confesiones', 'Yo tomé matcha a las 02:13... solo.', '2025-10-19 02:20:00'),
+('SalchiPresi', '#general', 'Los logs de Discord tampoco tienen coherencia a esa hora.', '2025-10-19 02:00:00'),
+('Marcus', '#dev', 'He revisado el estado_ci de los commits. Algunos fallaron justo a las 02:00.', '2025-10-19 02:01:00'),
+('Rubén', '#soporte', 'El sistema de ubicaciones muestra "Desconocido" desde la 02:13.', '2025-10-19 02:16:00'),
+('root_but_intern', '#secreto', 'Si quereis recuperar a Chipi, consultad mejor que nunca. SQL es vuestra salvación.', '2025-10-19 01:58:00');
 
 -- Insertar ubicaciones (el misterio de dónde está Chipi)
 INSERT INTO ubicaciones (nombre, lugar, estado) VALUES

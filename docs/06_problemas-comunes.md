@@ -4,7 +4,49 @@
 
 ---
 
-## 🔴 "psql: command not found"
+## ✅ Nombres de vistas correctos (evita confusiones)
+
+Asegúrate de crear exactamente estas vistas por día. Algunos checkers antiguos pedían nombres que no existen.
+
+- Día 1 (SELECT Basics)
+   - Requeridas: solve_d1_r1, solve_d1_r2, solve_d1_r3, solve_d1_r4
+   - Opcional (bonus): solve_d1_bonus
+
+- Día 2 (JOINs y análisis)
+   - Requeridas: solve_d2_r1, solve_d2_r2, solve_d2_r3, solve_d2_r4
+   - Nota: No existe solve_d2_r5
+
+- Día 3 (CTEs y Window Functions)
+   - Requeridas: solve_d3_r1, solve_d3_r2
+   - Bonus opcional: solve_d3_bonus (en algunos materiales llamado "extra")
+
+- Día 4 (Revelación Final)
+   - Requerida: solve_d4_reveal (una sola fila con 4 columnas)
+   - Nota: No existen solve_d4_r1/r2/r3/r4 ni solve_d4_final
+
+Si tus checkers exigen vistas diferentes, actualiza el repo y vuelve a correr `make check-*`.
+
+---
+
+## � Arreglar la línea temporal SIN perder tus vistas
+
+Si `solve_d2_extra` u otras consultas con horas fijas no devuelven datos y no quieres hacer `make reset`, hay un parche no destructivo que ajusta solo las fechas/horas del seed:
+
+- Archivo: `db/patches/10_fix_timeline_without_reset.sql`
+- Qué hace: ancla `commits`, `discord_logs` y `cafe_ordenes` al día del caso (2025-10-19) y ajusta horas clave. No borra ni toca tus vistas.
+
+Opcional (PowerShell):
+```powershell
+# Ejecutar el parche sin resetear la BD
+# Ajusta -U/-h/-p si usas credenciales distintas
+psql -U postgres -d chipi_case -f db/patches/10_fix_timeline_without_reset.sql
+```
+
+Tras esto, vuelve a ejecutar las validaciones (`make check-day2`, etc.).
+
+---
+
+## �🔴 "psql: command not found"
 
 ### Problema
 Al ejecutar `make setup`, ves:

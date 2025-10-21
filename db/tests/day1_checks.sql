@@ -49,13 +49,12 @@ BEGIN
         fail_count := fail_count + 1;
     END IF;
 
-    -- R5
-    IF EXISTS (SELECT 1 FROM information_schema.views WHERE table_schema='public' AND table_name = 'solve_d1_r5') THEN
-        SELECT COUNT(*) INTO v_count FROM public.solve_d1_r5;
-        RAISE NOTICE '[Reto 5] solve_d1_r5 [OK] (% filas)', v_count;
+    -- BONUS (no obligatorio): solve_d1_bonus (informativo)
+    IF EXISTS (SELECT 1 FROM information_schema.views WHERE table_schema='public' AND table_name = 'solve_d1_bonus') THEN
+        SELECT COUNT(*) INTO v_count FROM public.solve_d1_bonus;
+        RAISE NOTICE '[Bonus] solve_d1_bonus [OK] (% filas)', v_count;
     ELSE
-        RAISE NOTICE '[Reto 5] solve_d1_r5 [FAIL] (vista no existe)';
-        fail_count := fail_count + 1;
+        RAISE NOTICE '[Bonus] solve_d1_bonus [INFO] (no encontrado, es opcional)';
     END IF;
 
     RAISE NOTICE '';

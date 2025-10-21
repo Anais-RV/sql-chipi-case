@@ -4,26 +4,59 @@ SET client_encoding = 'UTF8';
 
 DO $$
 DECLARE
-    views      text[] := ARRAY['solve_d4_r1','solve_d4_r2','solve_d4_r3','solve_d4_final'];
-    v          text;
-    v_count    int;
-    fail_count int := 0;
+    v_count       int;
+    fail_count    int := 0;
+    col_count     int;
+    has_cols      int;
 BEGIN
   RAISE NOTICE '';
   RAISE NOTICE '========================================';
-  RAISE NOTICE 'Tests Day 4: Final';
+  RAISE NOTICE 'Tests Day 4: Final Reveal';
   RAISE NOTICE '========================================';
   RAISE NOTICE '';
 
-  FOREACH v IN ARRAY views LOOP
-    IF EXISTS (SELECT 1 FROM information_schema.views WHERE table_schema='public' AND table_name=v) THEN
-      EXECUTE format('SELECT count(*) FROM public.%I', v) INTO v_count;
-      RAISE NOTICE '[OK] % (% filas)', v, v_count;
-    ELSE
-      RAISE NOTICE '[FAIL] % (vista no existe)', v;
+  -- 1) La vista requerida es SOLO solve_d4_reveal
+  IF NOT EXISTS (
+      SELECT 1 FROM information_schema.views 
+      WHERE table_schema = 'public' AND table_name = 'solve_d4_reveal'
+  ) THEN
+      RAISE NOTICE '[FAIL] solve_d4_reveal (vista no existe)';
       fail_count := fail_count + 1;
-    END IF;
-  END LOOP;
+  ELSE
+      -- a) Debe devolver exactamente 1 fila
+      EXECUTE 'SELECT COUNT(*) FROM public.solve_d4_reveal' INTO v_count;
+      IF v_count = 1 THEN
+          RAISE NOTICE '[OK] solve_d4_reveal: devuelve exactamente 1 fila';
+      ELSE
+          RAISE NOTICE '[FAIL] solve_d4_reveal: devuelve % filas (debe ser 1)', v_count;
+          fail_count := fail_count + 1;
+      END IF;
+
+      -- b) Debe tener 4 columnas con nombres esperados
+      SELECT COUNT(*) INTO col_count
+      FROM information_schema.columns
+      WHERE table_schema = 'public' AND table_name = 'solve_d4_reveal';
+
+      IF col_count = 4 THEN
+          RAISE NOTICE '[OK] solve_d4_reveal: 4 columnas';
+      ELSE
+          RAISE NOTICE '[FAIL] solve_d4_reveal: tiene % columnas (deben ser 4)', col_count;
+          fail_count := fail_count + 1;
+      END IF;
+
+      SELECT COUNT(*) INTO has_cols
+      FROM information_schema.columns
+      WHERE table_schema = 'public' 
+        AND table_name = 'solve_d4_reveal'
+        AND column_name IN ('sospechoso','motivo','ubicacion_final','codigo_rescate');
+
+      IF has_cols = 4 THEN
+          RAISE NOTICE '[OK] solve_d4_reveal: columnas esperadas presentes';
+      ELSE
+          RAISE NOTICE '[FAIL] solve_d4_reveal: faltan columnas requeridas';
+          fail_count := fail_count + 1;
+      END IF;
+  END IF;
 
   RAISE NOTICE '';
   IF fail_count = 0 THEN

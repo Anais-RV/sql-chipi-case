@@ -4,10 +4,10 @@ SET client_encoding = 'UTF8';
 
 DO $$
 DECLARE
-    views      text[] := ARRAY['solve_d3_r1','solve_d3_r2','solve_d3_r3'];
-    v          text;
-    v_count    int;
-    fail_count int := 0;
+  views      text[] := ARRAY['solve_d3_r1','solve_d3_r2'];
+  v          text;
+  v_count    int;
+  fail_count int := 0;
 BEGIN
   RAISE NOTICE '';
   RAISE NOTICE '========================================';
