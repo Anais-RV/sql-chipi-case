@@ -3,6 +3,9 @@
 -- Solo se ejecuta si el código de rescate es correcto
 -- ============================================================
 
+-- Configurar codificacion UTF-8 para caracteres especiales
+SET client_encoding = 'UTF8';
+
 CREATE OR REPLACE FUNCTION unlock_chipi(codigo TEXT)
 RETURNS TEXT AS $$
 DECLARE

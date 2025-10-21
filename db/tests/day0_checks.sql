@@ -1,6 +1,9 @@
--- ============================================================-- ============================================================
+-- ============================================================
+-- sql-chipi-case: Tests del Día 0 (Warmup)
+-- ============================================================
 
--- sql-chipi-case: Tests para Day 0 (Calentamiento)-- sql-chipi-case: Tests del Día 0 (Warmup)
+-- Configurar codificacion UTF-8
+SET client_encoding = 'UTF8';
 
 -- ============================================================-- Tests "amables" para profes: mensajes claros, no aborta
 

@@ -4,6 +4,9 @@
 -- Investigación: Los alumnos deben resolver pistas con SQL
 -- ============================================================
 
+-- Configurar codificacion UTF-8 para caracteres especiales
+SET client_encoding = 'UTF8';
+
 -- Insertar equipos del bootcamp SuperKode
 INSERT INTO equipos (nombre, descripcion) VALUES
 ('SuperKode A', 'Equipo Backend fuerte'),

@@ -2,6 +2,9 @@
 -- sql-chipi-case: Tests para Day 1 (Retos básicos)
 -- ============================================================
 -- Este script valida que los estudiantes han creado las vistas correctas
+
+-- Configurar codificacion UTF-8
+SET client_encoding = 'UTF8';
 -- SIN revelar la solución exacta.
 -- ============================================================
 

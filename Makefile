@@ -57,8 +57,8 @@ help:
 initdb: check-psql
 	@echo "[1/3] Creando base de datos $(DB_NAME)..."
 	"$(PSQL)" -h $(DB_HOST) -U $(DB_USER) -p $(DB_PORT) -c "DROP DATABASE IF EXISTS $(DB_NAME);" 2>nul || echo "DB no existia."
-	"$(PSQL)" -h $(DB_HOST) -U $(DB_USER) -p $(DB_PORT) -c "CREATE DATABASE $(DB_NAME);" 
-	@echo "[OK] Base de datos $(DB_NAME) creada."
+	"$(PSQL)" -h $(DB_HOST) -U $(DB_USER) -p $(DB_PORT) -c "CREATE DATABASE $(DB_NAME) ENCODING 'UTF8' TEMPLATE template0;" 
+	@echo "[OK] Base de datos $(DB_NAME) creada con codificacion UTF-8."
 
 schema: check-psql
 	@echo "[2/3] Ejecutando esquema (00_schema.sql)..."

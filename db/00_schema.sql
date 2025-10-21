@@ -4,6 +4,9 @@
 -- La mascota Chipi 🐼 ha sido secuestrada en SuperKode!
 -- ============================================================
 
+-- Configurar codificacion UTF-8 para caracteres especiales
+SET client_encoding = 'UTF8';
+
 -- Tabla de equipos del bootcamp
 CREATE TABLE equipos (
     id SERIAL PRIMARY KEY,

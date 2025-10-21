@@ -41,14 +41,13 @@ Antes de empezar, asegúrate de tener:
 - **Make** instalado (viene con Git for Windows)
 - **DBeaver** o cualquier cliente SQL
 
-> 🚀 **¿Primera vez?** Lee [`QUICKSTART.md`](QUICKSTART.md) para configurar todo en 5 minutos.
-- **DBeaver** (opcional pero recomendado)
+> 🎯 **[¡COMIENZA TU AVENTURA AQUÍ! →](docs/00_COMIENZA_AQUI.md)**
 
 ---
 
 ## 🚀 Instalación y Setup
 
-> **📖 Guía rápida:** Lee [`QUICKSTART.md`](QUICKSTART.md) para instrucciones detalladas de instalación.
+> **📖 Guía completa:** [docs/instalacion.md](docs/instalacion.md)
 
 ### Configurar PostgreSQL
 
@@ -142,13 +141,14 @@ psql -h localhost -U postgres -d chipi_case
 
 ---
 
-## 📝 ¿Cómo entregar los retos?
+## 📝 ¿Cómo resolver los retos?
 
 Para cada reto, **crea una vista SQL** con el nombre exacto:
 
 ```sql
-CREATE VIEW solve_d1_r1 AS
-SELECT ...
+CREATE OR REPLACE VIEW solve_d1_r1 AS
+SELECT nombre, equipo, turno
+FROM alumnos ...
 ```
 
 Valida tu trabajo con:
@@ -170,10 +170,21 @@ make check-day1
 - **`ubicaciones`** - Ubicaciones
 - **`pistas`** - Pistas criptográficas
 
+Ver esquema completo: **[docs/04_schema-reference.md](docs/04_schema-reference.md)**
+
 ---
 
-## 🧭 Comandos Útiles
+## 🧭 Recursos y Ayuda
 
+### Documentación
+- 🎯 **[docs/00_COMIENZA_AQUI.md](docs/00_COMIENZA_AQUI.md)** - Índice principal (¡empieza aquí!)
+- 📖 **[docs/02_como-crear-vistas.md](docs/02_como-crear-vistas.md)** - Tutorial paso a paso
+- 🔧 **[docs/03_comandos.md](docs/03_comandos.md)** - Referencia de comandos make
+- 📊 **[docs/04_schema-reference.md](docs/04_schema-reference.md)** - Estructura de tablas
+- 🆘 **[docs/05_sql-cheatsheet.md](docs/05_sql-cheatsheet.md)** - Cheatsheet SQL
+- ⚠️ **[docs/06_problemas-comunes.md](docs/06_problemas-comunes.md)** - Troubleshooting
+
+### Comandos Rápidos
 ```powershell
 make setup         # Setup inicial
 make check-day1    # Validar Day 1

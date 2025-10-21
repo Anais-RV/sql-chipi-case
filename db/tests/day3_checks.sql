@@ -2,6 +2,9 @@
 -- sql-chipi-case: Tests para Day 3 (CTEs y Window Functions)
 -- ============================================================
 -- Este script valida que los estudiantes han creado las vistas correctas
+
+-- Configurar codificacion UTF-8
+SET client_encoding = 'UTF8';
 -- SIN revelar la solución exacta.
 -- NOTA: Day 3 es COMPLETAMENTE OPCIONAL
 -- ============================================================

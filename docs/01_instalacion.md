@@ -48,6 +48,12 @@ Abre en orden:
 4. `challenges/day3_window_functions.md` (OPCIONAL)
 5. `challenges/day4_final.md` (FINAL)
 
+**Como funciona:**
+- Lee el reto en el archivo `.md`
+- Escribe tu query en DBeaver
+- Crea una VISTA con tu solucion (ejemplo: `CREATE OR REPLACE VIEW solve_d1_r1 AS SELECT ...`)
+- Valida con `make check-day1`
+
 ---
 
 ## Comandos
@@ -88,8 +94,55 @@ WHERE c.mensaje ILIKE '%chipi%';
 
 ---
 
+## Como resolver un reto (ejemplo Day 1 - Reto 1)
+
+### Paso 1: Lee el reto en `challenges/day1_select_basics.md`
+
+```
+Reto 1: Lista todos los alumnos con su equipo y turno
+Columnas esperadas: nombre, equipo, turno
+```
+
+### Paso 2: Escribe tu query en DBeaver
+
+```sql
+-- Primero prueba tu query
+SELECT 
+    a.nombre,
+    e.nombre AS equipo,
+    a.turno
+FROM alumnos a
+JOIN equipos e ON a.equipo_id = e.id
+ORDER BY a.nombre;
+```
+
+### Paso 3: Crea la vista con tu solucion
+
+```sql
+-- Cuando funcione, crea la vista
+CREATE OR REPLACE VIEW solve_d1_r1 AS
+SELECT 
+    a.nombre,
+    e.nombre AS equipo,
+    a.turno
+FROM alumnos a
+JOIN equipos e ON a.equipo_id = e.id
+ORDER BY a.nombre;
+```
+
+### Paso 4: Valida
+
+```powershell
+make check-day1
+```
+
+Si ves `[OK] Reto 1 completado`, ¡lo lograste!
+
+---
+
 ## Ayuda
 
+- **Como crear vistas:** `COMO_CREAR_VISTAS.md` ⭐ **EMPIEZA AQUI**
 - **SQL Cheatsheet:** `SOS_SQL.md`
 - **Estructura de datos:** `SCHEMA_REFERENCE.md`
 - **Historia completa:** `lore/nota_secuestro.txt`
@@ -106,6 +159,15 @@ WHERE c.mensaje ILIKE '%chipi%';
 
 **"Database already exists"**
 → Ejecuta: `make reset`
+
+**"Vista solve_d1_r1 no existe"**
+→ Crea la vista con: `CREATE OR REPLACE VIEW solve_d1_r1 AS SELECT ...`
+
+**"Quiero ver mis vistas creadas"**
+→ En DBeaver: `SELECT * FROM information_schema.views WHERE table_schema = 'public';`
+
+**"Puedo guardar mis queries en un archivo?"**
+→ Sí, puedes crear `mis_soluciones.sql` y ejecutarlo cuando quieras, pero las vistas deben estar en PostgreSQL para que `make check-dayX` funcione.
 
 ---
 

@@ -287,10 +287,11 @@ WHERE d.ip = '192.168.1.109';
 ## 📞 Contacto / Soporte
 
 Para dudas sobre SQL o el proyecto:
-1. Revisa el README.md
-2. Lee los comentarios en db/00_schema.sql
-3. Examina las pistas en challenges/
-4. Pregunta a Mamá Pato 🦆 (ella niega haberlo visto todo)
+1. Revisa el [README principal](../README.md)
+2. Lee los comentarios en `db/00_schema.sql`
+3. Examina las pistas en `challenges/`
+4. Consulta [00_COMIENZA_AQUI.md](00_COMIENZA_AQUI.md)
+5. Pregunta a Mamá Pato 🦆 (ella niega haberlo visto todo)
 
 ---
 
