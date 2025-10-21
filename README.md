@@ -2,6 +2,10 @@
 
 > **Un proyecto educativo para enseñar SQL resolviendo un misterio.**
 
+<div align="center">
+  <img src="assets/WANTED.png" alt="WANTED: Chipi - Contacto: David Vaamonde" width="400">
+</div>
+
 Chipi, la mascota de **SuperKode**, ha sido secuestrada el 19 de octubre a las **02:13**. Los alumnos del bootcamp deben usar **SQL** para resolver pistas y descubrir quién fue.
 
 ---
